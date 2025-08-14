@@ -11,22 +11,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url('/hero.jpeg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     z-index: -2;
-
-    // Placeholder for background image
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="camera" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23f8f9fa" opacity="0.1"/><path d="M30 40h40v20l10-10v20l-10-10v20h-40v-40z" fill="white" opacity="0.3"/></pattern></defs><rect width="1000" height="1000" fill="url(%23camera)"/></svg>');
-      opacity: 0.1;
-    }
   }
 
   .hero-overlay {
@@ -167,21 +156,46 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero-section {
     .hero-title {
       .title-main {
+        font-size: 3rem;
+      }
+
+      .title-subtitle {
+        font-size: 1.3rem;
+      }
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      padding: 0 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh;
+    min-height: 600px;
+
+    .hero-title {
+      .title-main {
         font-size: 2.5rem;
+        line-height: 1;
       }
 
       .title-subtitle {
         font-size: 1.2rem;
+        margin-bottom: 1.5rem;
       }
     }
 
     .hero-description {
       font-size: 1.1rem;
       padding: 0 1rem;
+      margin-bottom: 2rem;
     }
 
     .hero-buttons {
@@ -192,6 +206,68 @@
         width: 80%;
         margin-left: auto;
         margin-right: auto;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 500px;
+
+    .hero-title {
+      .title-main {
+        font-size: 2rem;
+      }
+
+      .title-subtitle {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      padding: 0 1.5rem;
+      line-height: 1.5;
+    }
+
+    .hero-buttons {
+      .btn {
+        padding: 0.7rem 1.2rem;
+        width: 90%;
+        font-size: 0.85rem;
+      }
+    }
+
+    .scroll-indicator {
+      bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    .hero-title {
+      .title-main {
+        font-size: 1.75rem;
+      }
+
+      .title-subtitle {
+        font-size: 0.9rem;
+      }
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      padding: 0 1rem;
+    }
+
+    .hero-buttons {
+      .btn {
+        width: 95%;
+        margin: 0.3rem;
       }
     }
   }

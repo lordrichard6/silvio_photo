@@ -76,3 +76,106 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .contact-section {
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    .title-divider {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 0 !important;
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .form-control {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 0.8rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-info {
+      padding: 1.5rem;
+
+      .row {
+        text-align: center;
+      }
+
+      .col-md-4 {
+        margin-bottom: 2rem;
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+
+      h5 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-section {
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .form-control {
+      padding: 0.5rem 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-info {
+      padding: 1rem;
+
+      .col-md-4 {
+        margin-bottom: 1.5rem;
+      }
+
+      i {
+        font-size: 1.3rem;
+      }
+
+      h5 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+      }
+    }
+  }
+}

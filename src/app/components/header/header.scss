@@ -76,10 +76,93 @@
 }
 
 @media (max-width: 991px) {
+  .navbar {
+    .navbar-brand {
+      .brand-name {
+        font-size: 1.3rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
   .navbar-collapse {
     background: rgba(0, 0, 0, 0.95);
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 8px;
+
+    .navbar-nav {
+      .nav-link {
+        text-align: center;
+        margin: 0.2rem 0;
+        padding: 0.7rem 1rem !important;
+        border-radius: 5px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.7rem 0;
+
+    &.scrolled {
+      padding: 0.3rem 0;
+    }
+
+    .navbar-brand {
+      .brand-name {
+        font-size: 1.2rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.75rem;
+      }
+    }
+
+    .navbar-toggler {
+      padding: 0.25rem 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+
+    .navbar-nav .nav-link {
+      font-size: 0.95rem;
+      padding: 0.6rem 1rem !important;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0.5rem 0;
+
+    .navbar-brand {
+      .brand-name {
+        font-size: 1.1rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .navbar-collapse {
+    .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem !important;
+    }
   }
 }
