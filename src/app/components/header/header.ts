@@ -1,13 +1,15 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
 export class Header implements OnInit {
   isScrolled = false;
+  isMobileMenuOpen = false;
 
   ngOnInit() {
     this.checkScroll();
@@ -23,13 +25,19 @@ export class Header implements OnInit {
   }
 
   toggleMobileMenu() {
-    // This will be handled by Bootstrap's JavaScript
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
   }
 
   scrollTo(elementId: string) {
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu after navigation
+      this.closeMobileMenu();
     }
   }
 }
