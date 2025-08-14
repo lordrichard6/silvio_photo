@@ -1,0 +1,70 @@
+<section id="gallery" class="gallery-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Portefólio</h2>
+      <div class="title-divider mx-auto"></div>
+      <p class="section-description">
+        Uma coleção dos meus trabalhos favoritos mostrando diferentes estilos e momentos
+      </p>
+    </div>
+
+    <div class="gallery-filters mb-4">
+      <button 
+        *ngFor="let filter of filters" 
+        class="filter-btn"
+        [class.active]="activeFilter === filter.value"
+        (click)="setActiveFilter(filter.value)">
+        {{ filter.label }}
+      </button>
+    </div>
+
+    <div class="gallery-grid" [@staggerAnimation]="galleryItems.length">
+      <div 
+        *ngFor="let item of filteredItems; let i = index"
+        class="gallery-item"
+        [@fadeInScale]="animationState"
+        (click)="openLightbox(i)">
+        <div class="image-container">
+          <div class="image-placeholder">
+            <i class="fas fa-image fa-2x"></i>
+            <p>{{ item.category }}</p>
+            <small>{{ item.title }}</small>
+          </div>
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.category }}</p>
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div 
+      class="lightbox-modal" 
+      [class.active]="lightboxActive"
+      (click)="closeLightbox()">
+      <div class="lightbox-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeLightbox()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-image">
+          <div class="image-placeholder">
+            <i class="fas fa-image fa-4x"></i>
+            <p>{{ currentImage?.title }}</p>
+          </div>
+        </div>
+        <div class="lightbox-nav">
+          <button class="nav-btn prev" (click)="previousImage()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-btn next" (click)="nextImage()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

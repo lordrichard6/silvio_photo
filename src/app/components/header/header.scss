@@ -1,0 +1,85 @@
+.navbar {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+
+  &.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 0.5rem 0;
+  }
+
+  .navbar-brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white !important;
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: white;
+    }
+
+    .brand-subtitle {
+      font-size: 0.9rem;
+      font-weight: 300;
+      opacity: 0.8;
+      color: white;
+    }
+
+    &:hover {
+      color: white !important;
+      .brand-name {
+        color: #f8f9fa;
+      }
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: white !important;
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95);
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}

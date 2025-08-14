@@ -1,0 +1,311 @@
+.gallery-section {
+  background: white;
+  min-height: 80vh;
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+  }
+
+  .title-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    margin-bottom: 2rem;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+    color: #718096;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .gallery-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .filter-btn {
+      background: transparent;
+      border: 2px solid #e2e8f0;
+      color: #4a5568;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: #667eea;
+        color: #667eea;
+        transform: translateY(-2px);
+      }
+
+      &.active {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-color: transparent;
+        color: white;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      }
+    }
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+
+    .gallery-item {
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
+        .overlay {
+          opacity: 1;
+        }
+      }
+
+      .image-container {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+
+        .image-placeholder {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #64748b;
+
+          i {
+            margin-bottom: 1rem;
+            opacity: 0.7;
+          }
+
+          p {
+            margin: 0.5rem 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+          }
+
+          small {
+            opacity: 0.8;
+            font-style: italic;
+          }
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(45deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+          opacity: 0;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .overlay-content {
+            text-align: center;
+            color: white;
+
+            h4 {
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            }
+
+            p {
+              margin-bottom: 1rem;
+              opacity: 0.9;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              font-size: 0.9rem;
+            }
+
+            i {
+              font-size: 1.5rem;
+              animation: pulse 2s infinite;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+
+      .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.7);
+          transform: scale(1.1);
+        }
+      }
+
+      .lightbox-image {
+        width: 80vw;
+        height: 60vh;
+        max-width: 800px;
+
+        .image-placeholder {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135f, #f8f9fa 0%, #e9ecef 100%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #6c757d;
+
+          i {
+            margin-bottom: 1rem;
+            opacity: 0.7;
+          }
+
+          p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        transform: translateY(-50%);
+
+        .nav-btn {
+          background: rgba(0, 0, 0, 0.5);
+          border: none;
+          color: white;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+          }
+
+          i {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+
+      .gallery-item .image-container {
+        height: 200px;
+      }
+    }
+
+    .gallery-filters {
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .lightbox-modal .lightbox-content {
+      .lightbox-image {
+        width: 95vw;
+        height: 50vh;
+      }
+
+      .lightbox-nav .nav-btn {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
