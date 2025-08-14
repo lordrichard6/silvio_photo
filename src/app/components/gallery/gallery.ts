@@ -47,25 +47,24 @@ export class Gallery implements OnInit {
 
   filters: Filter[] = [
     { label: 'Todos', value: 'all' },
-    { label: 'Casamentos', value: 'wedding' },
     { label: 'Retratos', value: 'portrait' },
     { label: 'Eventos', value: 'event' },
     { label: 'Comercial', value: 'commercial' }
   ];
 
   galleryItems: GalleryItem[] = [
-    { id: 1, title: 'Cerimónia de Casamento Elegante', category: 'wedding' },
-    { id: 2, title: 'Retrato Profissional', category: 'portrait' },
-    { id: 3, title: 'Evento Corporativo', category: 'event' },
-    { id: 4, title: 'Fotografia de Produto', category: 'commercial' },
-    { id: 5, title: 'Casamento na Praia', category: 'wedding' },
-    { id: 6, title: 'Retrato de Família', category: 'portrait' },
-    { id: 7, title: 'Fotografia de Conferência', category: 'event' },
-    { id: 8, title: 'Fotografia de Marca', category: 'commercial' },
-    { id: 9, title: 'Casamento no Jardim', category: 'wedding' },
-    { id: 10, title: 'Retrato de Finalista', category: 'portrait' },
-    { id: 11, title: 'Evento de Gala', category: 'event' },
-    { id: 12, title: 'Fotografia de Arquitetura', category: 'commercial' }
+    { id: 1, title: 'Retrato Profissional', category: 'portrait' },
+    { id: 2, title: 'Evento Corporativo', category: 'event' },
+    { id: 3, title: 'Fotografia de Produto', category: 'commercial' },
+    { id: 4, title: 'Retrato de Família', category: 'portrait' },
+    { id: 5, title: 'Fotografia de Conferência', category: 'event' },
+    { id: 6, title: 'Fotografia de Marca', category: 'commercial' },
+    { id: 7, title: 'Retrato de Finalista', category: 'portrait' },
+    { id: 8, title: 'Evento de Gala', category: 'event' },
+    { id: 9, title: 'Fotografia de Arquitetura', category: 'commercial' },
+    { id: 10, title: 'Sessão de Retrato Criativo', category: 'portrait' },
+    { id: 11, title: 'Evento de Empresa', category: 'event' },
+    { id: 12, title: 'Fotografia de Interiores', category: 'commercial' }
   ];
 
   filteredItems: GalleryItem[] = [];

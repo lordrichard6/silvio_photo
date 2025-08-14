@@ -32,20 +32,6 @@ export class Services implements OnInit {
   services: Service[] = [
     {
       id: 1,
-      title: 'Fotografia de Casamento',
-      description: 'Cobertura completa do dia de casamento com narrativa artística',
-      price: 'A partir de 1.200€',
-      features: [
-        '8+ horas de cobertura',
-        '500+ fotos editadas',
-        'Galeria online',
-        'Sessão de noivado',
-        'Direitos de impressão'
-      ],
-      icon: 'fa-heart'
-    },
-    {
-      id: 2,
       title: 'Sessões de Retrato',
       description: 'Retratos profissionais para indivíduos, famílias e casais',
       price: 'A partir de 150€',
@@ -59,7 +45,7 @@ export class Services implements OnInit {
       icon: 'fa-user'
     },
     {
-      id: 3,
+      id: 2,
       title: 'Fotografia de Eventos',
       description: 'Eventos corporativos, festas e ocasiões especiais',
       price: 'A partir de 80€/hora',
@@ -73,7 +59,7 @@ export class Services implements OnInit {
       icon: 'fa-calendar'
     },
     {
-      id: 4,
+      id: 3,
       title: 'Fotografia Comercial',
       description: 'Fotografia de produto, marca e empresarial',
       price: 'A partir de 250€',
