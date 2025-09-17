@@ -38,7 +38,6 @@ export class Services implements OnInit {
       features: [
         'Sessão de 1-2 horas',
         '50+ fotos editadas',
-        'Várias mudanças de roupa',
         'Local à escolha',
         'Download digital'
       ],
@@ -67,8 +66,7 @@ export class Services implements OnInit {
         'Fotografia de produto',
         'Fotografia de marca',
         'Direitos de uso comercial',
-        'Retoque incluído',
-        'Múltiplos formatos'
+        'Edição incluído'
       ],
       icon: 'fa-briefcase'
     }

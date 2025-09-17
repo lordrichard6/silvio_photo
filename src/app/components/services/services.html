@@ -11,7 +11,7 @@
     <div class="row">
       <div 
         *ngFor="let service of services; let i = index"
-        class="col-lg-6 mb-4"
+        class="col-lg-6 mb-4 d-flex flex-column"
         [@fadeInUp]="animationState">
         <div class="service-card">
           <div class="service-icon">
@@ -31,10 +31,10 @@
               </li>
             </ul>
             
-            <button class="btn btn-primary service-btn">
-              Reservar Agora
-            </button>
           </div>
+          <button class="btn btn-primary service-btn mt-auto">
+            Reservar Agora
+          </button>
         </div>
       </div>
     </div>
