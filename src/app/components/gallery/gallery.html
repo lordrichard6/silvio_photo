@@ -25,7 +25,14 @@
         [@fadeInScale]="animationState"
         (click)="openLightbox(i)">
         <div class="image-container">
-          <div class="image-placeholder">
+          <img 
+            *ngIf="item.imageUrl" 
+            [src]="item.imageUrl" 
+            [alt]="item.title"
+            class="gallery-image">
+          <div 
+            *ngIf="!item.imageUrl" 
+            class="image-placeholder">
             <i class="fas fa-image fa-2x"></i>
             <p>{{ item.category }}</p>
             <small>{{ item.title }}</small>
@@ -51,7 +58,14 @@
           <i class="fas fa-times"></i>
         </button>
         <div class="lightbox-image">
-          <div class="image-placeholder">
+          <img 
+            *ngIf="currentImage?.imageUrl" 
+            [src]="currentImage?.imageUrl" 
+            [alt]="currentImage?.title"
+            class="lightbox-img">
+          <div 
+            *ngIf="!currentImage?.imageUrl" 
+            class="image-placeholder">
             <i class="fas fa-image fa-4x"></i>
             <p>{{ currentImage?.title }}</p>
           </div>

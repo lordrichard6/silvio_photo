@@ -54,17 +54,17 @@ export class Gallery implements OnInit {
 
   galleryItems: GalleryItem[] = [
     { id: 1, title: 'Retrato Profissional', category: 'portrait' },
-    { id: 2, title: 'Evento Corporativo', category: 'event' },
-    { id: 3, title: 'Fotografia de Produto', category: 'commercial' },
+    { id: 2, title: 'Evento Corporativo', category: 'event', imageUrl: '/img/events_01.JPG' },
+    { id: 3, title: 'Fotografia de Produto', category: 'commercial', imageUrl: '/img/comercial_01.jpg' },
     { id: 4, title: 'Retrato de Família', category: 'portrait' },
-    { id: 5, title: 'Fotografia de Conferência', category: 'event' },
-    { id: 6, title: 'Fotografia de Marca', category: 'commercial' },
+    { id: 5, title: 'Fotografia de Conferência', category: 'event', imageUrl: '/img/events_02.jpg' },
+    { id: 6, title: 'Fotografia de Marca', category: 'commercial', imageUrl: '/img/comercial_02.jpg' },
     { id: 7, title: 'Retrato de Finalista', category: 'portrait' },
-    { id: 8, title: 'Evento de Gala', category: 'event' },
-    { id: 9, title: 'Fotografia de Arquitetura', category: 'commercial' },
+    { id: 8, title: 'Evento de Gala', category: 'event', imageUrl: '/img/events_03.JPG' },
+    { id: 9, title: 'Fotografia de Arquitetura', category: 'commercial', imageUrl: '/img/comercial_03.jpg' },
     { id: 10, title: 'Sessão de Retrato Criativo', category: 'portrait' },
-    { id: 11, title: 'Evento de Empresa', category: 'event' },
-    { id: 12, title: 'Fotografia de Interiores', category: 'commercial' }
+    { id: 11, title: 'Evento de Empresa', category: 'event', imageUrl: '/img/events_04.jpg' },
+    { id: 12, title: 'Fotografia de Interiores', category: 'commercial', imageUrl: '/img/comercial_04.png' }
   ];
 
   filteredItems: GalleryItem[] = [];
