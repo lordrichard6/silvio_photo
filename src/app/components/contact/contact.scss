@@ -73,6 +73,17 @@
     p {
       color: #718096;
       margin: 0;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #667eea;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

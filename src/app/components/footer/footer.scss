@@ -79,6 +79,17 @@
     i {
       margin-right: 0.5rem;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #667eea;
+        text-decoration: underline;
+      }
+    }
   }
 
   .footer-divider {
