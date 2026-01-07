@@ -1,11 +1,19 @@
 .contact-section {
-  background: white;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)),
+    url('/bg_01.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
 
   .section-title {
     font-size: 2.5rem;
-    font-weight: 700;
-    color: #2d3748;
+    font-weight: 800;
+    color: #1a202c;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .title-divider {
@@ -13,180 +21,189 @@
     height: 4px;
     background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
     margin-bottom: 2rem;
+    border-radius: 2px;
   }
 
-  .form-label {
-    font-weight: 600;
-    color: #4a5568;
-    margin-bottom: 0.5rem;
+  .section-description {
+    font-size: 1.125rem;
+    color: #4a5568; // Darker text for readability over background
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
   }
 
-  .form-control {
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  // Split Card Layout
+  .contact-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); // Enhanced shadow
+  }
 
-    &:focus {
-      border-color: #667eea;
-      box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+  // Left Sidebar
+  .contact-sidebar {
+    background: linear-gradient(135deg, #1f2937, #111827); // Dark premium background
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    color: white;
+
+    .sidebar-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: row; // Forced row layout
+      align-items: center;
+
+      i {
+        color: #667eea;
+        width: 25px; // Fixed width for alignment
+        text-align: center;
+      }
+    }
+
+    // Decorative circles
+    .sidebar-decoration {
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .circle-1 {
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        right: -50px;
+      }
+
+      .circle-2 {
+        width: 150px;
+        height: 150px;
+        bottom: 50px;
+        left: -50px;
+      }
     }
   }
 
-  .btn-primary {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border: none;
-    border-radius: 25px;
-    padding: 1rem 3rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
+  // Right Form Area
+  .contact-form-wrapper {
+    background: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-    }
-
-    &:disabled {
-      background: #cbd5e0;
-      transform: none;
-      box-shadow: none;
-    }
-  }
-
-  .contact-info {
-    padding: 2rem;
-
-    i {
-      color: #667eea;
-      margin-bottom: 1rem;
-    }
-
-    h5 {
-      font-weight: 600;
+    h3 {
+      font-size: 1.5rem;
       color: #2d3748;
-      margin-bottom: 0.5rem;
     }
 
-    p {
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
       color: #718096;
-      margin: 0;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.3s ease;
+    .form-control {
+      border: 2px solid #edf2f7;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #4a5568;
+      transition: all 0.3s ease;
+      background: #f8fafc;
 
-        &:hover {
-          color: #667eea;
-          text-decoration: underline;
-        }
+      &:focus {
+        background: white;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #a0aec0;
+        font-weight: 400;
+      }
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 12px;
+      padding: 1rem 2.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.25);
+      }
+
+      &:disabled {
+        background: #cbd5e0;
+        cursor: not-allowed;
+        opacity: 0.7;
       }
     }
   }
 }
 
+// Responsive adjustments
 @media (max-width: 992px) {
   .contact-section {
-    .section-title {
-      font-size: 2.2rem;
-      text-align: center;
+    .contact-card {
+      max-width: 720px;
     }
 
-    .title-divider {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .contact-info {
-      margin-top: 2rem;
-      text-align: center;
+    // Hide sidebar on smaller screens is handled by bootstrap d-none d-lg-block
+    // but ensure form wrapper padding is adjusted
+    .contact-form-wrapper {
+      padding: 3rem 2rem;
     }
   }
 }
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 3rem 0 !important;
-
     .section-title {
       font-size: 2rem;
     }
 
-    .form-control {
-      padding: 0.6rem 0.8rem;
-      font-size: 0.95rem;
+    .contact-form-wrapper {
+      padding: 2rem 1.5rem;
+
+      h3 {
+        font-size: 1.25rem;
+        text-align: center;
+      }
     }
 
     .btn-primary {
       width: 100%;
-      padding: 0.8rem 2rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-info {
-      padding: 1.5rem;
-
-      .row {
-        text-align: center;
-      }
-
-      .col-md-4 {
-        margin-bottom: 2rem;
-      }
-
-      i {
-        font-size: 1.5rem;
-      }
-
-      h5 {
-        font-size: 1.1rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 576px) {
-  .contact-section {
-    .section-title {
-      font-size: 1.75rem;
-    }
-
-    .form-control {
-      padding: 0.5rem 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .btn-primary {
-      padding: 0.7rem 1.5rem;
-      font-size: 0.85rem;
-    }
-
-    .contact-info {
-      padding: 1rem;
-
-      .col-md-4 {
-        margin-bottom: 1.5rem;
-      }
-
-      i {
-        font-size: 1.3rem;
-      }
-
-      h5 {
-        font-size: 1rem;
-      }
-
-      p {
-        font-size: 0.9rem;
-        padding: 0 1rem;
-      }
     }
   }
 }

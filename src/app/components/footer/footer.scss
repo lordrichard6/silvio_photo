@@ -4,18 +4,10 @@
   padding: 3rem 0 1rem;
 
   .footer-brand {
-    h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-subtitle {
-      font-size: 1rem;
-      opacity: 0.8;
+    img {
+      max-width: 100%;
+      height: auto;
       margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
 
     .footer-description {
@@ -49,6 +41,8 @@
     }
   }
 
+
+
   .social-links {
     display: flex;
     gap: 1rem;
@@ -75,7 +69,7 @@
 
   .footer-contact {
     opacity: 0.8;
-    
+
     i {
       margin-right: 0.5rem;
     }

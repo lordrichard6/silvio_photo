@@ -1,20 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" [class.scrolled]="isScrolled">
   <div class="container">
     <a class="navbar-brand" href="#home" (click)="scrollTo('home'); $event.preventDefault()">
-      <span class="brand-name">Silvio Valente</span>
-      <span class="brand-subtitle">Fotografia</span>
+      <img src="/logo.svg" alt="Silvio Valente Fotografia" class="navbar-logo">
     </a>
-    
-    <button 
-      class="navbar-toggler" 
-      type="button" 
-      [attr.aria-expanded]="isMobileMenuOpen"
-      aria-controls="navbarNav"
-      aria-label="Toggle navigation"
-      (click)="toggleMobileMenu()">
+
+    <button class="navbar-toggler" type="button" [attr.aria-expanded]="isMobileMenuOpen" aria-controls="navbarNav"
+      aria-label="Toggle navigation" (click)="toggleMobileMenu()">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" [class.show]="isMobileMenuOpen" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">

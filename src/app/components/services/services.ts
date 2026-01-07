@@ -47,12 +47,11 @@ export class Services implements OnInit {
       id: 2,
       title: 'Fotografia de Eventos',
       description: 'Eventos corporativos, festas e ocasiões especiais',
-      price: 'A partir de 80€/hora',
+      price: 'A partir de 100€ + deslocação',
       features: [
         'Cobertura do evento',
         'Momentos espontâneos',
         'Fotos de grupo',
-        'Entrega em 48 horas',
         'Imagens alta resolução'
       ],
       icon: 'fa-calendar'

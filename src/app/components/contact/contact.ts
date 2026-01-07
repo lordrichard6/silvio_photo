@@ -11,8 +11,11 @@ interface ContactForm {
   message: string;
 }
 
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+
 @Component({
   selector: 'app-contact',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
@@ -28,6 +31,7 @@ interface ContactForm {
 })
 export class Contact implements OnInit {
   animationState = 'in';
+  isSubmitting = false;
 
   contactForm: ContactForm = {
     name: '',
@@ -48,11 +52,40 @@ export class Contact implements OnInit {
     // Component initialization
   }
 
-  onSubmit() {
-    console.log('Form submitted:', this.contactForm);
-    // Here you would typically send the form data to a backend service
-    alert('Obrigado pela sua mensagem! Entraremos em contacto consigo brevemente.');
-    this.resetForm();
+  async onSubmit() {
+    if (this.isSubmitting) return;
+
+    this.isSubmitting = true;
+
+    const templateParams = {
+      from_name: this.contactForm.name,
+      from_email: this.contactForm.email,
+      phone: this.contactForm.phone,
+      service: this.contactForm.service,
+      message: this.contactForm.message,
+      to_name: 'Silvio Valente' // Optional, depends on your template
+    };
+
+    try {
+      // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
+      // 1. Service ID: e.g., 'service_xyz'
+      // 2. Template ID: e.g., 'template_abc'
+      // 3. Public Key: e.g., 'user_123'
+      await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        templateParams,
+        'YOUR_PUBLIC_KEY'
+      );
+
+      alert('Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.');
+      this.resetForm();
+    } catch (error) {
+      console.error('FAILED...', error);
+      alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos directamente por email.');
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 
   private resetForm() {

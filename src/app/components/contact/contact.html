@@ -8,105 +8,113 @@
       </p>
     </div>
 
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <form (ngSubmit)="onSubmit()" #contactFormElement="ngForm" [@slideInUp]="animationState">
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="name" class="form-label">Nome Completo *</label>
-              <input 
-                type="text" 
-                class="form-control" 
-                id="name"
-                [(ngModel)]="contactForm.name"
-                name="name"
-                required>
-            </div>
-            
-            <div class="col-md-6 mb-3">
-              <label for="email" class="form-label">Endereço de Email *</label>
-              <input 
-                type="email" 
-                class="form-control" 
-                id="email"
-                [(ngModel)]="contactForm.email"
-                name="email"
-                required>
-            </div>
-          </div>
+    <div class="contact-card shadow-lg">
+      <div class="row g-0">
+        <!-- Sidebar Info (Left) -->
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="contact-sidebar h-100">
+            <div class="sidebar-content">
+              <h3 class="text-white mb-4">Informação</h3>
+              <p class="text-white-50 mb-5">
+                Contacte-nos directamente ou preencha o formulário e entraremos em contacto brevemente.
+              </p>
 
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="phone" class="form-label">Número de Telefone</label>
-              <input 
-                type="tel" 
-                class="form-control" 
-                id="phone"
-                [(ngModel)]="contactForm.phone"
-                name="phone">
-            </div>
-            
-            <div class="col-md-6 mb-3">
-              <label for="service" class="form-label">Serviço de Interesse</label>
-              <select 
-                class="form-control" 
-                id="service"
-                [(ngModel)]="contactForm.service"
-                name="service">
-                <option value="">Seleccione um serviço</option>
-                <option *ngFor="let service of services" [value]="service">
-                  {{ service }}
-                </option>
-              </select>
+              <div class="contact-item mb-4">
+                <i class="fas fa-envelope fa-lg text-white mb-2"></i>
+                <p class="mb-0 text-white"><a href="mailto:s.valentstudio@gmail.com"
+                    class="text-white text-decoration-none">s.valentstudio&#64;gmail.com</a></p>
+              </div>
+
+              <div class="contact-item mb-4">
+                <i class="fas fa-phone fa-lg text-white mb-2"></i>
+                <p class="mb-0 text-white">+351 913 950 921</p>
+              </div>
+
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt fa-lg text-white mb-2"></i>
+                <p class="mb-0 text-white">Nisa, Portugal</p>
+              </div>
+
+              <div class="sidebar-decoration">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+              </div>
             </div>
           </div>
-
-          <div class="mb-4">
-            <label for="message" class="form-label">Mensagem *</label>
-            <textarea 
-              class="form-control" 
-              id="message" 
-              rows="5"
-              [(ngModel)]="contactForm.message"
-              name="message"
-              placeholder="Conte-me sobre o seu projeto, datas preferenciais e quaisquer requisitos específicos..."
-              required></textarea>
-          </div>
-
-          <div class="text-center">
-            <button 
-              type="submit" 
-              class="btn btn-primary btn-lg px-5"
-              [disabled]="!contactFormElement.form.valid">
-              Enviar Mensagem
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-lg-4 text-center">
-        <div class="contact-info">
-          <i class="fas fa-envelope fa-2x mb-3"></i>
-          <h5>Email</h5>
-          <p><a href="mailto:s.valentstudio@gmail.com">s.valentstudio&#64;gmail.com</a></p>
         </div>
-      </div>
-      
-      <div class="col-lg-4 text-center">
-        <div class="contact-info">
-          <i class="fas fa-phone fa-2x mb-3"></i>
-          <h5>Telefone</h5>
-          <p>+351 913 950 921</p>
-        </div>
-      </div>
-      
-      <div class="col-lg-4 text-center">
-        <div class="contact-info">
-          <i class="fas fa-map-marker-alt fa-2x mb-3"></i>
-          <h5>Localização</h5>
-          <p>Nisa, Portugal</p>
+
+        <!-- Main Form (Right) -->
+        <div class="col-lg-8">
+          <div class="contact-form-wrapper p-5">
+            <h3 class="mb-4 text-dark font-weight-bold d-lg-block d-none">Peça um orçamento</h3>
+
+            <!-- Mobile Contact Info (Visible only on lg and below) -->
+            <div class="d-lg-none mb-4 text-center">
+              <p class="text-muted">
+                <i class="fas fa-envelope mr-2"></i> s.valentstudio&#64;gmail.com <br>
+                <i class="fas fa-phone mr-2"></i> +351 913 950 921
+              </p>
+            </div>
+
+            <form (ngSubmit)="onSubmit()" #contactFormElement="ngForm" id="form-scroll">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control form-control-lg" id="name" [(ngModel)]="contactForm.name"
+                      name="name" placeholder="Seu nome" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control form-control-lg" id="email" [(ngModel)]="contactForm.email"
+                      name="email" placeholder="email@exemplo.com" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Telefone (Opcional)</label>
+                    <input type="tel" class="form-control form-control-lg" id="phone" [(ngModel)]="contactForm.phone"
+                      name="phone" placeholder="+351 ...">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-group">
+                    <label for="service" class="form-label">Serviço</label>
+                    <select class="form-control form-control-lg" id="service" [(ngModel)]="contactForm.service"
+                      name="service">
+                      <option value="">Seleccione um serviço</option>
+                      <option *ngFor="let service of services" [value]="service">
+                        {{ service }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-5">
+                <div class="form-group">
+                  <label for="message" class="form-label">Mensagem</label>
+                  <textarea class="form-control form-control-lg" id="message" rows="4" [(ngModel)]="contactForm.message"
+                    name="message" placeholder="Como posso ajudar?" required></textarea>
+                </div>
+              </div>
+
+              <div class="text-right">
+                <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm"
+                  [disabled]="!contactFormElement.form.valid || isSubmitting">
+                  <span *ngIf="!isSubmitting">Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i></span>
+                  <span *ngIf="isSubmitting"><i class="fas fa-spinner fa-spin mr-2"></i> A enviar...</span>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -1,22 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { trigger, state, style, transition, animate, query, stagger } from '@angular/animations';
-
-interface GalleryItem {
-  id: number;
-  title: string;
-  category: string;
-  imageUrl?: string;
-}
-
-interface Filter {
-  label: string;
-  value: string;
-}
+import { PortfolioService, PortfolioClient } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-gallery',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
   animations: [
@@ -40,70 +31,17 @@ interface Filter {
   ]
 })
 export class Gallery implements OnInit {
-  animationState = 'in';
-  activeFilter = 'all';
-  lightboxActive = false;
-  currentImageIndex = 0;
+  mainProjects: PortfolioClient[] = [];
+  marqueeProjects: PortfolioClient[] = [];
 
-  filters: Filter[] = [
-    { label: 'Todos', value: 'all' },
-    { label: 'Retratos', value: 'portrait' },
-    { label: 'Eventos', value: 'event' },
-    { label: 'Comercial', value: 'commercial' }
-  ];
-
-  galleryItems: GalleryItem[] = [
-    { id: 1, title: 'Retrato Profissional', category: 'portrait' },
-    { id: 2, title: 'Evento Corporativo', category: 'event', imageUrl: '/img/events_01.JPG' },
-    { id: 3, title: 'Fotografia de Produto', category: 'commercial', imageUrl: '/img/comercial_01.jpg' },
-    { id: 4, title: 'Retrato de Família', category: 'portrait' },
-    { id: 5, title: 'Fotografia de Conferência', category: 'event', imageUrl: '/img/events_02.jpg' },
-    { id: 6, title: 'Fotografia de Marca', category: 'commercial', imageUrl: '/img/comercial_02.jpg' },
-    { id: 7, title: 'Retrato de Finalista', category: 'portrait' },
-    { id: 8, title: 'Evento de Gala', category: 'event', imageUrl: '/img/events_03.JPG' },
-    { id: 9, title: 'Fotografia de Arquitetura', category: 'commercial', imageUrl: '/img/comercial_03.jpg' },
-    { id: 10, title: 'Sessão de Retrato Criativo', category: 'portrait' },
-    { id: 11, title: 'Evento de Empresa', category: 'event', imageUrl: '/img/events_04.jpg' },
-    { id: 12, title: 'Fotografia de Interiores', category: 'commercial', imageUrl: '/img/comercial_04.png' }
-  ];
-
-  filteredItems: GalleryItem[] = [];
+  constructor(private portfolioService: PortfolioService) { }
 
   ngOnInit() {
-    this.filteredItems = this.galleryItems;
-  }
+    const allClients = this.portfolioService.getClients();
+    this.mainProjects = allClients.slice(0, 3);
 
-  get currentImage(): GalleryItem | undefined {
-    return this.filteredItems[this.currentImageIndex];
-  }
-
-  setActiveFilter(filter: string) {
-    this.activeFilter = filter;
-    this.filteredItems = filter === 'all' 
-      ? this.galleryItems 
-      : this.galleryItems.filter(item => item.category === filter);
-  }
-
-  openLightbox(index: number) {
-    this.currentImageIndex = index;
-    this.lightboxActive = true;
-    document.body.style.overflow = 'hidden';
-  }
-
-  closeLightbox() {
-    this.lightboxActive = false;
-    document.body.style.overflow = 'auto';
-  }
-
-  previousImage() {
-    this.currentImageIndex = this.currentImageIndex > 0 
-      ? this.currentImageIndex - 1 
-      : this.filteredItems.length - 1;
-  }
-
-  nextImage() {
-    this.currentImageIndex = this.currentImageIndex < this.filteredItems.length - 1 
-      ? this.currentImageIndex + 1 
-      : 0;
+    // Duplicate clients to create a seamless marquee loop
+    // We need enough items to fill the width of the screen plus overflow
+    this.marqueeProjects = [...allClients, ...allClients, ...allClients, ...allClients];
   }
 }

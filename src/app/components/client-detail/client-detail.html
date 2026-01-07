@@ -1,0 +1,28 @@
+<div class="container py-5 mt-5" *ngIf="client">
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 fw-bold mb-3">{{ client.name }}</h1>
+            <p class="lead text-muted">{{ client.description }}</p>
+            <span class="badge bg-secondary mb-3">{{ client.category }}</span>
+            <div class="mt-4">
+                <a routerLink="/portfolio" class="btn btn-outline-dark">
+                    <i class="bi bi-arrow-left"></i> Voltar ao Portfólio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-6" *ngFor="let image of client.images">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                <img [src]="image" [alt]="client.name" class="card-img-top h-100 object-fit-cover"
+                    style="min-height: 400px; max-height: 600px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 mt-5 text-center" *ngIf="!client">
+    <h2>Cliente não encontrado</h2>
+    <a routerLink="/portfolio" class="btn btn-primary mt-3">Voltar ao Portfólio</a>
+</div>

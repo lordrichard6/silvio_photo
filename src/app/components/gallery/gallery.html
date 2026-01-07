@@ -4,79 +4,43 @@
       <h2 class="section-title">Portefólio</h2>
       <div class="title-divider mx-auto"></div>
       <p class="section-description">
-        Uma coleção dos meus trabalhos favoritos mostrando diferentes estilos e momentos
+        Alguns dos nossos projetos recentes e colaborações
       </p>
     </div>
 
-    <div class="gallery-filters mb-4">
-      <button 
-        *ngFor="let filter of filters" 
-        class="filter-btn"
-        [class.active]="activeFilter === filter.value"
-        (click)="setActiveFilter(filter.value)">
-        {{ filter.label }}
-      </button>
-    </div>
-
-    <div class="gallery-grid" [@staggerAnimation]="galleryItems.length">
-      <div 
-        *ngFor="let item of filteredItems; let i = index"
-        class="gallery-item"
-        [@fadeInScale]="animationState"
-        (click)="openLightbox(i)">
-        <div class="image-container">
-          <img 
-            *ngIf="item.imageUrl" 
-            [src]="item.imageUrl" 
-            [alt]="item.title"
-            class="gallery-image">
-          <div 
-            *ngIf="!item.imageUrl" 
-            class="image-placeholder">
-            <i class="fas fa-image fa-2x"></i>
-            <p>{{ item.category }}</p>
-            <small>{{ item.title }}</small>
-          </div>
-          <div class="overlay">
-            <div class="overlay-content">
-              <h4>{{ item.title }}</h4>
-              <p>{{ item.category }}</p>
-              <i class="fas fa-search-plus"></i>
+    <!-- Main Projects Grid -->
+    <div class="row g-4 mb-5" [@staggerAnimation]="mainProjects.length">
+      <div *ngFor="let client of mainProjects" class="col-md-4" [@fadeInScale]="'in'">
+        <div class="card h-100 border-0 shadow-lg client-card main-card" [routerLink]="['/portfolio', client.slug]">
+          <div class="card-img-wrapper overflow-hidden">
+            <img [src]="client.coverImage" [alt]="client.name" class="card-img-top object-fit-cover"
+              style="height: 350px;">
+            <div class="card-overlay">
+              <span class="view-project">Ver Projeto</span>
             </div>
+          </div>
+          <div class="card-body text-center p-4">
+            <span class="badge category-badge mb-2">{{ client.category }}</span>
+            <h3 class="card-title fw-bold text-white">{{ client.name }}</h3>
+            <p class="card-text text-white-50 small">{{ client.description }}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Lightbox Modal -->
-    <div 
-      class="lightbox-modal" 
-      [class.active]="lightboxActive"
-      (click)="closeLightbox()">
-      <div class="lightbox-content" (click)="$event.stopPropagation()">
-        <button class="close-btn" (click)="closeLightbox()">
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="lightbox-image">
-          <img 
-            *ngIf="currentImage?.imageUrl" 
-            [src]="currentImage?.imageUrl" 
-            [alt]="currentImage?.title"
-            class="lightbox-img">
-          <div 
-            *ngIf="!currentImage?.imageUrl" 
-            class="image-placeholder">
-            <i class="fas fa-image fa-4x"></i>
-            <p>{{ currentImage?.title }}</p>
+    <!-- Marquee Row -->
+    <div class="marquee-container mt-5">
+      <div class="marquee-track">
+        <div *ngFor="let client of marqueeProjects" class="marquee-item" [routerLink]="['/portfolio', client.slug]">
+          <div class="card border-0 shadow-sm mini-card">
+            <div class="mini-img-wrapper">
+              <img [src]="client.coverImage" [alt]="client.name">
+            </div>
+            <div class="mini-content">
+              <h6 class="text-white mb-1">{{ client.name }}</h6>
+              <span class="text-white-50 small">{{ client.category }}</span>
+            </div>
           </div>
-        </div>
-        <div class="lightbox-nav">
-          <button class="nav-btn prev" (click)="previousImage()">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="nav-btn next" (click)="nextImage()">
-            <i class="fas fa-chevron-right"></i>
-          </button>
         </div>
       </div>
     </div>

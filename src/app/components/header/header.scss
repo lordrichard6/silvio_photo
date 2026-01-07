@@ -11,29 +11,18 @@
 
   .navbar-brand {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    color: white !important;
 
-    .brand-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1;
-      color: white;
+    .navbar-logo {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
     }
 
-    .brand-subtitle {
-      font-size: 0.9rem;
-      font-weight: 300;
-      opacity: 0.8;
-      color: white;
-    }
-
-    &:hover {
-      color: white !important;
-      .brand-name {
-        color: #f8f9fa;
-      }
+    &:hover .navbar-logo {
+      opacity: 0.9;
     }
   }
 
@@ -48,6 +37,7 @@
 
       &:hover {
         color: white !important;
+
         &::after {
           width: 100%;
         }
@@ -70,7 +60,7 @@
   .navbar-toggler {
     border: none;
     padding: 0.4rem 0.6rem;
-    
+
     &:focus {
       box-shadow: none;
     }
@@ -82,7 +72,7 @@
 
   .navbar-collapse {
     transition: all 0.3s ease-in-out;
-    
+
     &:not(.show) {
       display: none;
     }
@@ -99,6 +89,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
