@@ -74,4 +74,11 @@ export class Services implements OnInit {
   ngOnInit() {
     // Component initialization
   }
+
+  scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

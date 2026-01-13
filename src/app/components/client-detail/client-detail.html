@@ -5,7 +5,7 @@
             <p class="lead text-muted">{{ client.description }}</p>
             <span class="badge bg-secondary mb-3">{{ client.category }}</span>
             <div class="mt-4">
-                <a routerLink="/portfolio" class="btn btn-outline-dark">
+                <a routerLink="/" fragment="gallery" class="btn btn-outline-dark">
                     <i class="bi bi-arrow-left"></i> Voltar ao Portfólio
                 </a>
             </div>
@@ -24,5 +24,5 @@
 
 <div class="container py-5 mt-5 text-center" *ngIf="!client">
     <h2>Cliente não encontrado</h2>
-    <a routerLink="/portfolio" class="btn btn-primary mt-3">Voltar ao Portfólio</a>
+    <a routerLink="/" fragment="gallery" class="btn btn-primary mt-3">Voltar ao Portfólio</a>
 </div>
