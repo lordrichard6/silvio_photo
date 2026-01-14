@@ -310,3 +310,16 @@
     }
   }
 }
+// Carousel Animation Styles
+.carousel-container {
+  display: grid;
+  grid-template-areas: "stack";
+  position: relative;
+  overflow: visible; // Allow hover effects to show outside
+  padding: 20px; // Space for shadow/transform
+  
+  .carousel-item-wrapper {
+    grid-area: stack;
+    width: 100%;
+  }
+}

@@ -9,20 +9,24 @@
     </div>
 
     <!-- Main Projects Grid -->
-    <div class="row g-4 mb-5" [@staggerAnimation]="mainProjects.length">
-      <div *ngFor="let client of mainProjects" class="col-md-4" [@fadeInScale]="'in'">
-        <div class="card h-100 border-0 shadow-lg client-card main-card" [routerLink]="['/portfolio', client.slug]">
-          <div class="card-img-wrapper overflow-hidden">
-            <img [src]="client.coverImage" [alt]="client.name" class="card-img-top object-fit-cover"
-              style="height: 350px;">
-            <div class="card-overlay">
-              <span class="view-project">Ver Projeto</span>
+    <!-- Main Projects Carousel -->
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-4 carousel-container">
+        <!-- Loop length 1 array to trigger enter/leave animations when currentProject changes -->
+        <div class="carousel-item-wrapper" *ngFor="let project of [currentProject]" [@slideAnimation]>
+          <div class="card h-100 border-0 shadow-lg client-card main-card" [routerLink]="['/portfolio', project?.slug]">
+            <div class="card-img-wrapper overflow-hidden">
+              <img [src]="project?.coverImage" [alt]="project?.name" class="card-img-top object-fit-cover"
+                style="height: 350px;">
+              <div class="card-overlay">
+                <span class="view-project">Ver Projeto</span>
+              </div>
             </div>
-          </div>
-          <div class="card-body text-center p-4">
-            <span class="badge category-badge mb-2">{{ client.category }}</span>
-            <h3 class="card-title fw-bold text-white">{{ client.name }}</h3>
-            <p class="card-text text-white-50 small">{{ client.description }}</p>
+            <div class="card-body text-center p-4">
+              <span class="badge category-badge mb-2">{{ project?.category }}</span>
+              <h3 class="card-title fw-bold text-white">{{ project?.name }}</h3>
+              <p class="card-text text-white-50 small">{{ project?.description }}</p>
+            </div>
           </div>
         </div>
       </div>

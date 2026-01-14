@@ -42,7 +42,6 @@ export class Contact implements OnInit {
   };
 
   services = [
-    'Fotografia de Casamento',
     'Sessões de Retrato',
     'Fotografia de Eventos',
     'Fotografia Comercial'
@@ -67,15 +66,11 @@ export class Contact implements OnInit {
     };
 
     try {
-      // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
-      // 1. Service ID: e.g., 'service_xyz'
-      // 2. Template ID: e.g., 'template_abc'
-      // 3. Public Key: e.g., 'user_123'
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_fh0v8cc',
+        'template_3wra85a',
         templateParams,
-        'YOUR_PUBLIC_KEY'
+        '0Zwd6N709W5ix3792'
       );
 
       alert('Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.');

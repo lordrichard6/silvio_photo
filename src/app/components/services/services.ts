@@ -34,10 +34,10 @@ export class Services implements OnInit {
       id: 1,
       title: 'Sessões de Retrato',
       description: 'Retratos profissionais para indivíduos, famílias e casais',
-      price: 'A partir de 150€',
+      price: 'A partir de 100€',
       features: [
         'Sessão de 1-2 horas',
-        '50+ fotos editadas',
+        '25 fotos editadas',
         'Local à escolha',
         'Download digital'
       ],
@@ -47,7 +47,7 @@ export class Services implements OnInit {
       id: 2,
       title: 'Fotografia de Eventos',
       description: 'Eventos corporativos, festas e ocasiões especiais',
-      price: 'A partir de 100€ + deslocação',
+      price: 'A partir de 150€ + deslocação',
       features: [
         'Cobertura do evento',
         'Momentos espontâneos',
@@ -60,7 +60,7 @@ export class Services implements OnInit {
       id: 3,
       title: 'Fotografia Comercial',
       description: 'Fotografia de produto, marca e empresarial',
-      price: 'A partir de 250€',
+      price: 'A partir de 200€',
       features: [
         'Fotografia de produto',
         'Fotografia de marca',
