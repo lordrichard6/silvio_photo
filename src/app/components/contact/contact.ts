@@ -48,7 +48,8 @@ export class Contact implements OnInit {
   ];
 
   ngOnInit() {
-    // Component initialization
+    // Initialize EmailJS with public key
+    emailjs.init('0Zwd6N709W5ix3792');
   }
 
   async onSubmit() {
@@ -62,17 +63,17 @@ export class Contact implements OnInit {
       phone: this.contactForm.phone,
       service: this.contactForm.service,
       message: this.contactForm.message,
-      to_name: 'Silvio Valente' // Optional, depends on your template
+      to_name: 'Silvio Valente'
     };
 
     try {
-      await emailjs.send(
+      const response = await emailjs.send(
         'service_fh0v8cc',
         'template_3wra85a',
-        templateParams,
-        '0Zwd6N709W5ix3792'
+        templateParams
       );
 
+      console.log('SUCCESS!', response.status, response.text);
       alert('Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.');
       this.resetForm();
     } catch (error) {
