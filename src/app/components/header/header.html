@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" [class.scrolled]="isScrolled">
   <div class="container">
     <a class="navbar-brand" href="#home" (click)="scrollTo('home'); $event.preventDefault()">
-      <img src="/logo_new.png" alt="Silvio Valente Fotografia" class="navbar-logo">
+      <img src="/logo_top.png" alt="Silvio Valente Fotografia" class="navbar-logo">
     </a>
 
     <button class="navbar-toggler" type="button" [attr.aria-expanded]="isMobileMenuOpen" aria-controls="navbarNav"
@@ -12,19 +12,24 @@
     <div class="collapse navbar-collapse" [class.show]="isMobileMenuOpen" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#home" (click)="scrollTo('home'); $event.preventDefault()">Início</a>
+          <a class="nav-link" [class.active]="activeSection === 'home'"
+            href="#home" (click)="scrollTo('home'); $event.preventDefault()">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about" (click)="scrollTo('about'); $event.preventDefault()">Sobre</a>
+          <a class="nav-link" [class.active]="activeSection === 'about'"
+            href="#about" (click)="scrollTo('about'); $event.preventDefault()">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#gallery" (click)="scrollTo('gallery'); $event.preventDefault()">Galeria</a>
+          <a class="nav-link" [class.active]="activeSection === 'gallery'"
+            href="#gallery" (click)="scrollTo('gallery'); $event.preventDefault()">Galeria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services" (click)="scrollTo('services'); $event.preventDefault()">Serviços</a>
+          <a class="nav-link" [class.active]="activeSection === 'services'"
+            href="#services" (click)="scrollTo('services'); $event.preventDefault()">Serviços</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact" (click)="scrollTo('contact'); $event.preventDefault()">Contacto</a>
+          <a class="nav-link" [class.active]="activeSection === 'contact'"
+            href="#contact" (click)="scrollTo('contact'); $event.preventDefault()">Contacto</a>
         </li>
       </ul>
     </div>

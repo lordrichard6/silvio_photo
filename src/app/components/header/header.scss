@@ -1,13 +1,16 @@
 .navbar {
-  background: linear-gradient(to bottom, rgba(30, 30, 45, 0.95), rgba(10, 10, 20, 0.95));
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
+  backdrop-filter: none;
+  transition: all 0.4s ease;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid transparent;
 
   &.scrolled {
-    background: linear-gradient(to bottom, rgba(20, 20, 35, 0.98), rgba(5, 5, 10, 0.98));
-    padding: 0.5rem 0;
+    background: linear-gradient(to bottom, rgba(20, 20, 35, 0.97), rgba(5, 5, 10, 0.97));
+    backdrop-filter: blur(12px);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   }
 
   .navbar-brand {
@@ -16,27 +19,30 @@
     text-decoration: none;
 
     .navbar-logo {
-      height: 40px;
+      height: 42px;
       width: auto;
-      filter: brightness(0) invert(1);
       transition: all 0.3s ease;
     }
 
     &:hover .navbar-logo {
-      opacity: 0.9;
+      opacity: 0.85;
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: rgba(255, 255, 255, 0.9) !important;
-      font-weight: 500;
-      margin: 0 0.5rem;
-      padding: 0.5rem 1rem !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0.25rem;
+      padding: 0.5rem 0.9rem !important;
       position: relative;
       transition: all 0.3s ease;
 
-      &:hover {
+      &:hover,
+      &.active {
         color: white !important;
 
         &::after {
@@ -98,33 +104,28 @@
 }
 
 @media (max-width: 991px) {
-  .navbar {
-    .navbar-brand {
-      .brand-name {
-        font-size: 1.3rem;
-      }
-
-      .brand-subtitle {
-        font-size: 0.8rem;
-      }
-    }
-  }
-
   .navbar-collapse {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(10, 10, 20, 0.97);
+    backdrop-filter: blur(12px);
     margin-top: 1rem;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
 
     .navbar-nav {
       .nav-link {
         text-align: center;
         margin: 0.2rem 0;
-        padding: 0.7rem 1rem !important;
-        border-radius: 5px;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px;
 
-        &:hover {
-          background: rgba(255, 255, 255, 0.1);
+        &:hover,
+        &.active {
+          background: rgba(255, 255, 255, 0.08);
+
+          &::after {
+            display: none;
+          }
         }
       }
     }
@@ -133,20 +134,10 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.7rem 0;
+    padding: 0.9rem 0;
 
     &.scrolled {
-      padding: 0.3rem 0;
-    }
-
-    .navbar-brand {
-      .brand-name {
-        font-size: 1.2rem;
-      }
-
-      .brand-subtitle {
-        font-size: 0.75rem;
-      }
+      padding: 0.4rem 0;
     }
 
     .navbar-toggler {
@@ -160,7 +151,7 @@
     padding: 0.8rem;
 
     .navbar-nav .nav-link {
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       padding: 0.6rem 1rem !important;
     }
   }
@@ -168,22 +159,11 @@
 
 @media (max-width: 576px) {
   .navbar {
-    padding: 0.5rem 0;
-
-    .navbar-brand {
-      .brand-name {
-        font-size: 1.1rem;
-      }
-
-      .brand-subtitle {
-        font-size: 0.7rem;
-      }
-    }
+    padding: 0.6rem 0;
   }
 
   .navbar-collapse {
     .navbar-nav .nav-link {
-      font-size: 0.9rem;
       padding: 0.5rem 0.8rem !important;
     }
   }

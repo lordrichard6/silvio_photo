@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,12 +7,22 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
-export class Header implements OnInit {
+export class Header implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
+  activeSection = 'home';
+
+  private observer!: IntersectionObserver;
 
   ngOnInit() {
     this.checkScroll();
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   @HostListener('window:scroll', [])
@@ -22,6 +32,26 @@ export class Header implements OnInit {
 
   private checkScroll() {
     this.isScrolled = window.pageYOffset > 50;
+  }
+
+  private setupIntersectionObserver() {
+    const sectionIds = ['home', 'about', 'gallery', 'services', 'contact'];
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.activeSection = entry.target.id;
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) this.observer.observe(el);
+    });
   }
 
   toggleMobileMenu() {
@@ -36,7 +66,6 @@ export class Header implements OnInit {
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      // Close mobile menu after navigation
       this.closeMobileMenu();
     }
   }
