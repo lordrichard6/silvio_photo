@@ -1,5 +1,10 @@
 .about-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.90)),
+    url('/about.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-height: 70vh;
   display: flex;
   align-items: center;

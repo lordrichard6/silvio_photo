@@ -1,5 +1,10 @@
 .services-section {
-  background: #ffffff;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.90)),
+    url('/price.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
   overflow: hidden;
 
