@@ -1,0 +1,270 @@
+@if (service) {
+  <div class="service-detail-page">
+
+    <!-- ═══ HERO ═══ -->
+    <div class="service-hero" [style.background]="service.heroGradient">
+      <div class="hero-particles">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+      </div>
+      <div class="container hero-content">
+        <nav class="breadcrumb-nav" aria-label="breadcrumb">
+          <a routerLink="/">Início</a>
+          <span class="sep"><i class="fas fa-chevron-right"></i></span>
+          <a routerLink="/" fragment="services">Serviços</a>
+          <span class="sep"><i class="fas fa-chevron-right"></i></span>
+          <span class="current">{{ service.title }}</span>
+        </nav>
+        <h1 class="hero-title">{{ service.title }}</h1>
+        <p class="hero-tagline">{{ service.tagline }}</p>
+        <div class="hero-cta">
+          <button class="btn-primary-cta" (click)="scrollToContact()">
+            <i class="fas fa-envelope me-2"></i>{{ service.ctaText }}
+          </button>
+          <a routerLink="/portfolio" class="btn-secondary-cta">
+            <i class="fas fa-images me-2"></i>Ver portfólio
+          </a>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <!-- ═══ INTRO ═══ -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="reveal fade-up">
+              <span class="section-label">Sobre o serviço</span>
+              <h2 class="section-heading">O que é a <br><span class="gradient-text">{{ service.title }}</span>?</h2>
+            </div>
+            @for (paragraph of service.intro; track paragraph; let i = $index) {
+              <p class="intro-paragraph reveal fade-up" [style.transition-delay]="(i * 0.1) + 's'">
+                {{ paragraph }}
+              </p>
+            }
+          </div>
+          <div class="col-lg-5">
+            <div class="intro-image-block reveal fade-up" style="transition-delay: 0.2s">
+              <div class="image-placeholder">
+                <div class="placeholder-inner">
+                  <i class="fas fa-camera fa-2x"></i>
+                  <span>Imagem ilustrativa</span>
+                </div>
+                <div class="prompt-tag">
+                  <i class="fas fa-magic me-1"></i>
+                  <span>{{ service.imageBlocks[0].prompt }}</span>
+                </div>
+              </div>
+              <p class="image-caption">{{ service.imageBlocks[0].caption }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HIGHLIGHTS ═══ -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="text-center mb-5 reveal fade-up">
+          <span class="section-label light">O que está incluído</span>
+          <h2 class="section-heading light">Tudo o que precisa,<br>numa única solução</h2>
+        </div>
+        <div class="row g-4">
+          @for (h of service.highlights; track h.title; let i = $index) {
+            <div class="col-md-6 col-lg-4 reveal fade-up" [style.transition-delay]="(i * 0.08) + 's'">
+              <div class="highlight-card">
+                <div class="highlight-icon">
+                  <i class="fas {{ h.icon }}"></i>
+                </div>
+                <h3>{{ h.title }}</h3>
+                <p>{{ h.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ IMAGE GALLERY ═══ -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="text-center mb-5 reveal fade-up">
+          <span class="section-label">Exemplos de trabalho</span>
+          <h2 class="section-heading">Imagens que <span class="gradient-text">falam por si</span></h2>
+          <p class="section-sub">Placeholders com prompts para geração de imagens profissionais</p>
+        </div>
+        <div class="gallery-grid">
+          @for (img of service.imageBlocks; track img.alt; let i = $index) {
+            <div class="gallery-block reveal fade-up" [class.wide]="i === 0" [style.transition-delay]="(i * 0.12) + 's'">
+              <div class="gallery-placeholder">
+                <div class="placeholder-content">
+                  <i class="fas fa-camera fa-2x"></i>
+                  <span class="placeholder-label">{{ img.alt }}</span>
+                </div>
+                <div class="prompt-overlay">
+                  <p class="prompt-title"><i class="fas fa-magic me-2"></i>Prompt IA</p>
+                  <p class="prompt-text">{{ img.prompt }}</p>
+                </div>
+              </div>
+              <p class="gallery-caption">{{ img.caption }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROCESS ═══ -->
+    <section class="process-section">
+      <div class="container">
+        <div class="text-center mb-5 reveal fade-up">
+          <span class="section-label">Como trabalhamos</span>
+          <h2 class="section-heading">O nosso <span class="gradient-text">processo</span></h2>
+          <p class="section-sub">Da consulta inicial à entrega final — um processo claro e transparente</p>
+        </div>
+        <div class="process-timeline">
+          @for (step of service.processSteps; track step.number; let i = $index) {
+            <div class="process-step reveal fade-up" [style.transition-delay]="(i * 0.1) + 's'">
+              <div class="step-number">{{ step.number }}</div>
+              <div class="step-content">
+                <h3>{{ step.title }}</h3>
+                <p>{{ step.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WHY SILVIO ═══ -->
+    <section class="why-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5 reveal fade-up">
+            <span class="section-label light">A nossa diferença</span>
+            <h2 class="section-heading light">Porquê escolher<br><strong>Silvio Valente</strong>?</h2>
+            <p class="why-intro">Baseado em Nisa, no Alentejo, com projetos em todo Portugal — a qualidade e o compromisso com cada cliente são a nossa maior referência.</p>
+            <button class="btn-primary-cta mt-4" (click)="scrollToContact()">
+              <i class="fas fa-envelope me-2"></i>Falar connosco
+            </button>
+          </div>
+          <div class="col-lg-7">
+            <div class="why-grid">
+              @for (item of service.whyItems; track item.title; let i = $index) {
+                <div class="why-card reveal fade-up" [style.transition-delay]="(i * 0.1) + 's'">
+                  <div class="why-icon"><i class="fas {{ item.icon }}"></i></div>
+                  <div class="why-text">
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.text }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RELATED PORTFOLIO ═══ -->
+    @if (relatedProjects.length > 0) {
+      <section class="related-section">
+        <div class="container">
+          <div class="text-center mb-5 reveal fade-up">
+            <span class="section-label">Portfólio relacionado</span>
+            <h2 class="section-heading">Projetos <span class="gradient-text">realizados</span></h2>
+            <p class="section-sub">Exemplos reais do nosso trabalho nesta área</p>
+          </div>
+          <div class="row g-4">
+            @for (project of relatedProjects; track project.slug; let i = $index) {
+              <div class="col-md-4 reveal fade-up" [style.transition-delay]="(i * 0.1) + 's'">
+                <a [routerLink]="['/portfolio', project.slug]" class="related-card">
+                  <div class="related-img" [style.background-image]="'url(' + project.coverImage + ')'">
+                    <div class="related-overlay">
+                      <span>Ver projeto <i class="fas fa-arrow-right ms-1"></i></span>
+                    </div>
+                    @if (project.category) {
+                      <span class="related-badge">{{ project.category }}</span>
+                    }
+                  </div>
+                  <div class="related-info">
+                    <h4>{{ project.name }}</h4>
+                  </div>
+                </a>
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 reveal fade-up">
+            <span class="section-label">Dúvidas frequentes</span>
+            <h2 class="section-heading">Perguntas<br><span class="gradient-text">frequentes</span></h2>
+            <p class="faq-intro">Não encontrou a resposta? Fale connosco diretamente.</p>
+            <button class="btn-outline-cta mt-3" (click)="scrollToContact()">
+              <i class="fas fa-comment-alt me-2"></i>Enviar pergunta
+            </button>
+          </div>
+          <div class="col-lg-8">
+            <div class="faq-list">
+              @for (faq of service.faqs; track faq.question; let i = $index) {
+                <div class="faq-item reveal fade-up" [class.open]="openFaqIndex === i"
+                  [style.transition-delay]="(i * 0.07) + 's'">
+                  <button class="faq-question" (click)="toggleFaq(i)" [attr.aria-expanded]="openFaqIndex === i">
+                    <span>{{ faq.question }}</span>
+                    <i class="fas" [class.fa-plus]="openFaqIndex !== i" [class.fa-minus]="openFaqIndex === i"></i>
+                  </button>
+                  @if (openFaqIndex === i) {
+                    <div class="faq-answer">
+                      <p>{{ faq.answer }}</p>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta-section">
+      <div class="cta-bg">
+        <div class="cta-orb cta-orb-1"></div>
+        <div class="cta-orb cta-orb-2"></div>
+      </div>
+      <div class="container text-center cta-content reveal fade-up">
+        <span class="section-label light">Próximo passo</span>
+        <h2 class="cta-title">Pronto para <span class="gradient-text">começar</span>?</h2>
+        <p class="cta-body">Sem compromisso, sem surpresas. Fale connosco e receba um orçamento personalizado para o seu projeto.</p>
+        <div class="cta-buttons">
+          <button class="btn-primary-cta large" (click)="scrollToContact()">
+            <i class="fas fa-envelope me-2"></i>{{ service.ctaText }}
+          </button>
+          <a href="https://www.instagram.com/s.valentt" target="_blank" rel="noopener" class="btn-secondary-cta">
+            <i class="fab fa-instagram me-2"></i>Ver Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+} @else {
+  <div class="not-found-page">
+    <div class="container text-center">
+      <i class="fas fa-camera fa-3x mb-4"></i>
+      <h2>Serviço não encontrado</h2>
+      <p>O serviço que procura não existe.</p>
+      <a routerLink="/" fragment="services" class="btn-back">
+        <i class="fas fa-arrow-left me-2"></i>Ver todos os serviços
+      </a>
+    </div>
+  </div>
+}

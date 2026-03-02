@@ -1,8 +1,10 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface Service {
   id: number;
+  slug: string;
   title: string;
   description: string;
   price: string;
@@ -12,7 +14,7 @@ interface Service {
 
 @Component({
   selector: 'app-services',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './services.html',
   styleUrl: './services.scss'
 })
@@ -22,6 +24,7 @@ export class Services implements OnInit, OnDestroy {
   services: Service[] = [
     {
       id: 1,
+      slug: 'sessoes-de-retrato',
       title: 'Sessões de Retrato',
       description: 'Retratos profissionais para indivíduos, famílias e casais',
       price: 'A partir de 100€',
@@ -35,6 +38,7 @@ export class Services implements OnInit, OnDestroy {
     },
     {
       id: 2,
+      slug: 'fotografia-de-eventos',
       title: 'Fotografia de Eventos',
       description: 'Eventos corporativos, festas e ocasiões especiais',
       price: 'A partir de 150€ + deslocação',
@@ -48,6 +52,7 @@ export class Services implements OnInit, OnDestroy {
     },
     {
       id: 3,
+      slug: 'fotografia-comercial',
       title: 'Fotografia Comercial',
       description: 'Fotografia de produto, marca e empresarial',
       price: 'A partir de 200€',

@@ -4,11 +4,13 @@ import { HomeComponent } from './components/home/home';
 import { TermsComponent } from './components/terms/terms';
 import { PrivacyComponent } from './components/privacy/privacy';
 import { PortfolioListComponent } from './components/portfolio-list/portfolio-list';
+import { ServiceDetailComponent } from './components/service-detail/service-detail';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'portfolio', component: PortfolioListComponent },
     { path: 'portfolio/:slug', component: ClientDetailComponent },
+    { path: 'servicos/:slug', component: ServiceDetailComponent },
     { path: 'termos', component: TermsComponent },
     { path: 'politica-privacidade', component: PrivacyComponent }
 ];

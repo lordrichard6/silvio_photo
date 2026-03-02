@@ -36,9 +36,9 @@
               </ul>
             </div>
 
-            <button class="btn btn-primary service-btn mt-auto" (click)="scrollToContact()">
-              Pedir orçamento
-            </button>
+            <a [routerLink]="['/servicos', service.slug]" class="btn btn-primary service-btn mt-auto">
+              Saber mais <i class="fas fa-arrow-right ms-2"></i>
+            </a>
           </div>
         </div>
       }
