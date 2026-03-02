@@ -75,8 +75,8 @@ export class Contact implements OnInit {
       );
 
       console.log('SUCCESS!', response.status, response.text);
+      this.contactForm = { name: '', email: '', phone: '', service: '', message: '' };
       this.submitted = true;
-      this.resetForm();
     } catch (error) {
       console.error('FAILED...', error);
       alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos directamente por email.');
