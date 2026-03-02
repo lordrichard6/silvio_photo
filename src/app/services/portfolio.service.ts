@@ -18,7 +18,7 @@ export class PortfolioService {
         {
             id: '1',
             slug: 'bua-trip',
-            name: 'Bua Trip',
+            name: 'Fotografia de Eventos',
             description: 'Capturando a energia vibrante e os momentos inesquecíveis do festival Bua Trip. Fotografia de evento que documenta a atmosfera festiva, performances ao vivo e a conexão entre artistas e público.',
             category: 'Festival',
             coverImage: 'img/bua_trip/0N2A2260.webp',
@@ -36,7 +36,7 @@ export class PortfolioService {
         {
             id: '2',
             slug: 'o-bordado',
-            name: 'O Bordado',
+            name: 'Fotografia Gastronómica',
             description: 'Fotografia gastronómica e de ambiente para o restaurante O Bordado. Imagens que realçam a apresentação artística dos pratos, a atmosfera acolhedora e a experiência culinária autêntica.',
             category: 'Restaurante',
             coverImage: 'img/O Bordado/0N2A2418.webp',
@@ -53,7 +53,7 @@ export class PortfolioService {
         {
             id: '3',
             slug: 'curta-metragem',
-            name: 'Curta Metragem',
+            name: 'Fotografia de Cinema',
             description: 'Fotografia de bastidores para uma curta-metragem, documentando o processo cinematográfico. Capturas que revelam a magia por trás das câmeras, a dedicação da equipa e os momentos criativos da produção.',
             category: 'Cinema',
             coverImage: 'img/curta metragem/0N2A1428.webp',
