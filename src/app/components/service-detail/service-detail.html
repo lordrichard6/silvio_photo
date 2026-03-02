@@ -192,7 +192,7 @@
             @for (project of relatedProjects; track project.slug; let i = $index) {
               <div class="col-md-4 reveal fade-up" [style.transition-delay]="(i * 0.1) + 's'">
                 <a [routerLink]="['/portfolio', project.slug]" class="related-card">
-                  <div class="related-img" [style.background-image]="'url(' + project.coverImage + ')'">
+                  <div class="related-img" [style.background-image]="'url(\'' + project.coverImage + '\')'">
                     <div class="related-overlay">
                       <span>Ver projeto <i class="fas fa-arrow-right ms-1"></i></span>
                     </div>
