@@ -140,6 +140,27 @@
     margin: 0;
     font-size: 0.875rem;
   }
+
+  .copyright-dev {
+    margin: 0.4rem 0 0;
+    font-size: 0.75rem;
+    opacity: 0.4;
+    letter-spacing: 0.03em;
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
 }
 
 @media (max-width: 992px) {
