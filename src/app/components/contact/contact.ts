@@ -32,6 +32,7 @@ import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 export class Contact implements OnInit {
   animationState = 'in';
   isSubmitting = false;
+  submitted = false;
 
   contactForm: ContactForm = {
     name: '',
@@ -74,7 +75,7 @@ export class Contact implements OnInit {
       );
 
       console.log('SUCCESS!', response.status, response.text);
-      alert('Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.');
+      this.submitted = true;
       this.resetForm();
     } catch (error) {
       console.error('FAILED...', error);
@@ -84,7 +85,7 @@ export class Contact implements OnInit {
     }
   }
 
-  private resetForm() {
+  resetForm() {
     this.contactForm = {
       name: '',
       email: '',
@@ -92,5 +93,6 @@ export class Contact implements OnInit {
       service: '',
       message: ''
     };
+    this.submitted = false;
   }
 }
