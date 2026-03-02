@@ -16,6 +16,12 @@
   }
 
   .footer-brand {
+    .footer-logo {
+      height: 60px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
     img {
       max-width: 100%;
       height: auto;

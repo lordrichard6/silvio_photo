@@ -1,6 +1,6 @@
 <section id="contact" class="contact-section py-5">
   <div class="container">
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 reveal fade-up">
       <h2 class="section-title">Contacto</h2>
       <div class="title-divider mx-auto"></div>
       <p class="section-description">
@@ -8,7 +8,7 @@
       </p>
     </div>
 
-    <div class="contact-card shadow-lg">
+    <div class="contact-card shadow-lg reveal fade-up" style="transition-delay: 0.15s">
       <div class="row g-0">
         <!-- Sidebar Info (Left) -->
         <div class="col-lg-4 d-none d-lg-block">
@@ -45,23 +45,22 @@
           <div class="contact-form-wrapper p-5">
 
             <!-- Success State -->
-            <div class="success-state" *ngIf="submitted">
-              <div class="success-icon-wrapper">
-                <div class="success-icon">
-                  <i class="fas fa-check"></i>
+            @if (submitted) {
+              <div class="success-state">
+                <div class="success-icon-wrapper">
+                  <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                  </div>
                 </div>
+                <h3 class="success-title">Mensagem enviada!</h3>
+                <p class="success-message">
+                  Obrigado pelo contacto.<br>Entraremos em contacto consigo brevemente.
+                </p>
+                <button class="btn btn-outline-send mt-2" (click)="resetForm()">
+                  <i class="fas fa-redo-alt me-2"></i> Enviar outra mensagem
+                </button>
               </div>
-              <h3 class="success-title">Mensagem enviada!</h3>
-              <p class="success-message">
-                Obrigado pelo contacto.<br>Entraremos em contacto consigo brevemente.
-              </p>
-              <button class="btn btn-outline-send mt-2" (click)="resetForm()">
-                <i class="fas fa-redo-alt me-2"></i> Enviar outra mensagem
-              </button>
-            </div>
-
-            <!-- Form -->
-            <ng-container *ngIf="!submitted">
+            } @else {
               <h3 class="mb-4 text-dark font-weight-bold d-lg-block d-none">Peça um orçamento</h3>
 
               <!-- Mobile Contact Info (Visible only on lg and below) -->
@@ -105,15 +104,15 @@
                       <select class="form-control form-control-lg" id="service" [(ngModel)]="contactForm.service"
                         name="service">
                         <option value="">Seleccione um serviço</option>
-                        <option *ngFor="let service of services" [value]="service">
-                          {{ service }}
-                        </option>
+                        @for (service of services; track service) {
+                          <option [value]="service">{{ service }}</option>
+                        }
                       </select>
                     </div>
                   </div>
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-4">
                   <div class="form-group">
                     <label for="message" class="form-label">Mensagem</label>
                     <textarea class="form-control form-control-lg" id="message" rows="4" [(ngModel)]="contactForm.message"
@@ -121,15 +120,24 @@
                   </div>
                 </div>
 
+                @if (errorMessage) {
+                  <div class="error-message mb-3">
+                    <i class="fas fa-exclamation-circle me-2"></i>{{ errorMessage }}
+                  </div>
+                }
+
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm"
                     [disabled]="!contactFormElement.form.valid || isSubmitting">
-                    <span *ngIf="!isSubmitting">Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i></span>
-                    <span *ngIf="isSubmitting"><i class="fas fa-spinner fa-spin mr-2"></i> A enviar...</span>
+                    @if (!isSubmitting) {
+                      <span>Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i></span>
+                    } @else {
+                      <span><i class="fas fa-spinner fa-spin mr-2"></i> A enviar...</span>
+                    }
                   </button>
                 </div>
               </form>
-            </ng-container>
+            }
 
           </div>
         </div>

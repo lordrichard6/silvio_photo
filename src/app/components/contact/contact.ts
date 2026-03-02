@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
 interface ContactForm {
   name: string;
@@ -11,28 +10,20 @@ interface ContactForm {
   message: string;
 }
 
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss',
-  animations: [
-    trigger('slideInUp', [
-      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('void => *', [
-        style({ opacity: 0, transform: 'translateY(30px)' }),
-        animate('800ms ease-out')
-      ])
-    ])
-  ]
+  styleUrl: './contact.scss'
 })
-export class Contact implements OnInit {
-  animationState = 'in';
+export class Contact implements OnInit, OnDestroy {
   isSubmitting = false;
   submitted = false;
+  errorMessage = '';
+  private observer!: IntersectionObserver;
 
   contactForm: ContactForm = {
     name: '',
@@ -48,14 +39,40 @@ export class Contact implements OnInit {
     'Fotografia Comercial'
   ];
 
+  constructor(private el: ElementRef) {}
+
   ngOnInit() {
-    // Initialize EmailJS with public key
     emailjs.init('0Zwd6N709W5ix3792');
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupIntersectionObserver() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    setTimeout(() => {
+      const elements = this.el.nativeElement.querySelectorAll('.reveal');
+      elements.forEach((el: Element) => this.observer.observe(el));
+    }, 0);
   }
 
   async onSubmit() {
     if (this.isSubmitting) return;
-
+    this.errorMessage = '';
     this.isSubmitting = true;
 
     const templateParams = {
@@ -79,7 +96,7 @@ export class Contact implements OnInit {
       this.submitted = true;
     } catch (error) {
       console.error('FAILED...', error);
-      alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos directamente por email.');
+      this.errorMessage = 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos directamente por email.';
     } finally {
       this.isSubmitting = false;
     }
@@ -94,5 +111,6 @@ export class Contact implements OnInit {
       message: ''
     };
     this.submitted = false;
+    this.errorMessage = '';
   }
 }

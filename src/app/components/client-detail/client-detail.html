@@ -1,28 +1,78 @@
-<div class="container py-5 mt-5" *ngIf="client">
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto text-center">
-            <h1 class="display-4 fw-bold mb-3">{{ client.name }}</h1>
-            <p class="lead text-muted">{{ client.description }}</p>
-            <span class="badge bg-secondary mb-3">{{ client.category }}</span>
-            <div class="mt-4">
-                <a routerLink="/" fragment="gallery" class="btn btn-outline-dark">
-                    <i class="bi bi-arrow-left"></i> Voltar ao Portfólio
-                </a>
-            </div>
-        </div>
+@if (client) {
+  <div class="client-detail-page">
+
+    <!-- Hero Banner -->
+    <div class="detail-hero" [style.background-image]="'url(' + client.coverImage + ')'">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <a routerLink="/portfolio" class="back-link">
+          <i class="fas fa-arrow-left me-2"></i>Voltar ao Portfólio
+        </a>
+        <h1 class="detail-title">{{ client.name }}</h1>
+        @if (client.category) {
+          <span class="category-badge">{{ client.category }}</span>
+        }
+      </div>
     </div>
 
-    <div class="row g-4">
-        <div class="col-md-6 col-lg-6" *ngFor="let image of client.images">
-            <div class="card h-100 border-0 shadow-sm overflow-hidden">
-                <img [src]="image" [alt]="client.name" class="card-img-top h-100 object-fit-cover"
-                    style="min-height: 400px; max-height: 600px;" loading="lazy">
-            </div>
-        </div>
+    <!-- Description -->
+    <div class="detail-description">
+      <div class="container">
+        <p class="description-text">{{ client.description }}</p>
+      </div>
     </div>
-</div>
 
-<div class="container py-5 mt-5 text-center" *ngIf="!client">
-    <h2>Cliente não encontrado</h2>
-    <a routerLink="/" fragment="gallery" class="btn btn-primary mt-3">Voltar ao Portfólio</a>
-</div>
+    <!-- Image Gallery -->
+    <div class="detail-gallery">
+      <div class="container">
+        <div class="gallery-grid">
+          @for (image of client.images; track image; let i = $index) {
+            <div class="gallery-item" [class.wide]="i === 0">
+              <img [src]="image" [alt]="client.name + ' - foto ' + (i + 1)" loading="lazy">
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Prev / Next Navigation -->
+    <div class="project-nav">
+      <div class="container">
+        <div class="nav-inner">
+          @if (prevProject) {
+            <a [routerLink]="['/portfolio', prevProject.slug]" class="nav-project nav-prev">
+              <i class="fas fa-arrow-left"></i>
+              <div class="nav-project-info">
+                <span class="nav-label">Anterior</span>
+                <span class="nav-name">{{ prevProject.name }}</span>
+              </div>
+            </a>
+          } @else {
+            <div></div>
+          }
+          @if (nextProject) {
+            <a [routerLink]="['/portfolio', nextProject.slug]" class="nav-project nav-next">
+              <div class="nav-project-info text-end">
+                <span class="nav-label">Próximo</span>
+                <span class="nav-name">{{ nextProject.name }}</span>
+              </div>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+} @else {
+  <div class="not-found-page">
+    <div class="container text-center">
+      <i class="fas fa-camera fa-3x mb-4"></i>
+      <h2>Projecto não encontrado</h2>
+      <p>O projecto que procura não existe ou foi removido.</p>
+      <a routerLink="/portfolio" class="btn-back">
+        <i class="fas fa-arrow-left me-2"></i>Voltar ao Portfólio
+      </a>
+    </div>
+  </div>
+}

@@ -1,12 +1,6 @@
 <section id="services" class="services-section py-5">
   <div class="container">
-    <div class="background-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-      <div class="shape shape-4"></div>
-    </div>
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 reveal fade-up">
       <h2 class="section-title">Serviços</h2>
       <div class="title-divider mx-auto"></div>
       <p class="section-description">
@@ -15,33 +9,39 @@
     </div>
 
     <div class="row">
-      <div *ngFor="let service of services; let i = index" class="col-lg-4 mb-4 d-flex flex-column"
-        [@fadeInUp]="animationState">
-        <div class="service-card" [class.featured]="i === 1">
-          <span class="featured-badge" *ngIf="i === 1">Mais Popular</span>
-          <div class="service-icon">
-            <i class="fas {{ service.icon }} fa-2x"></i>
+      @for (service of services; track service.id; let i = $index) {
+        <div class="col-lg-4 mb-4 d-flex flex-column reveal fade-up"
+          [style.transition-delay]="(i * 0.15) + 's'">
+          <div class="service-card" [class.featured]="i === 1">
+            @if (i === 1) {
+              <span class="featured-badge">Mais Popular</span>
+            }
+            <div class="service-icon">
+              <i class="fas {{ service.icon }} fa-2x"></i>
+            </div>
+
+            <div class="service-content">
+              <h3>{{ service.title }}</h3>
+              <p class="service-description">{{ service.description }}</p>
+
+              <div class="service-price">{{ service.price }}</div>
+
+              <ul class="service-features">
+                @for (feature of service.features; track feature) {
+                  <li>
+                    <i class="fas fa-check"></i>
+                    {{ feature }}
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <button class="btn btn-primary service-btn mt-auto" (click)="scrollToContact()">
+              Pedir orçamento
+            </button>
           </div>
-
-          <div class="service-content">
-            <h3>{{ service.title }}</h3>
-            <p class="service-description">{{ service.description }}</p>
-
-            <div class="service-price">{{ service.price }}</div>
-
-            <ul class="service-features">
-              <li *ngFor="let feature of service.features">
-                <i class="fas fa-check"></i>
-                {{ feature }}
-              </li>
-            </ul>
-
-          </div>
-          <button class="btn btn-primary service-btn mt-auto" (click)="scrollToContact()">
-            Pedir orçamento
-          </button>
         </div>
-      </div>
+      }
     </div>
   </div>
 </section>

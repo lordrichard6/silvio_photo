@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
 interface Service {
   id: number;
@@ -15,19 +14,10 @@ interface Service {
   selector: 'app-services',
   imports: [CommonModule],
   templateUrl: './services.html',
-  styleUrl: './services.scss',
-  animations: [
-    trigger('fadeInUp', [
-      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('void => *', [
-        style({ opacity: 0, transform: 'translateY(30px)' }),
-        animate('800ms ease-out')
-      ])
-    ])
-  ]
+  styleUrl: './services.scss'
 })
-export class Services implements OnInit {
-  animationState = 'in';
+export class Services implements OnInit, OnDestroy {
+  private observer!: IntersectionObserver;
 
   services: Service[] = [
     {
@@ -71,8 +61,34 @@ export class Services implements OnInit {
     }
   ];
 
+  constructor(private el: ElementRef) {}
+
   ngOnInit() {
-    // Component initialization
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupIntersectionObserver() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    setTimeout(() => {
+      const elements = this.el.nativeElement.querySelectorAll('.reveal');
+      elements.forEach((el: Element) => this.observer.observe(el));
+    }, 0);
   }
 
   scrollToContact() {
