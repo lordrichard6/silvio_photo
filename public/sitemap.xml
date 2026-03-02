@@ -2,43 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.silviovalentt.pt/</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.silviovalentt.pt/about</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://www.silviovalentt.pt/portfolio/bua-trip</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.silviovalentt.pt/services</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://www.silviovalentt.pt/portfolio/o-bordado</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.silviovalentt.pt/gallery</loc>
-    <lastmod>2026-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.silviovalentt.pt/contact</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://www.silviovalentt.pt/portfolio/curta-metragem</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.silviovalentt.pt/privacy</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://www.silviovalentt.pt/portfolio/classicos</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviovalentt.pt/portfolio/casa-olival</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviovalentt.pt/portfolio/macau</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviovalentt.pt/portfolio/campeonato-motonautica</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviovalentt.pt/portfolio/o-cardo</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviovalentt.pt/portfolio/nisa</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviovalentt.pt/termos</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.silviovalentt.pt/terms</loc>
-    <lastmod>2026-01-18</lastmod>
+    <loc>https://www.silviovalentt.pt/politica-privacidade</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
