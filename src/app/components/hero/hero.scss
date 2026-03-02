@@ -7,15 +7,16 @@
 
   .hero-background {
     position: absolute;
-    top: 0;
+    top: -10%;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background-image: url('/hero_new.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -2;
+    will-change: transform;
   }
 
   .hero-overlay {
@@ -35,6 +36,7 @@
 
   .hero-logo {
     margin-bottom: 2rem;
+    animation: heroFadeInUp 0.9s ease-out 0.3s both;
 
     .logo-image {
       max-width: 550px;
@@ -45,6 +47,7 @@
   }
 
   .hero-description {
+    animation: heroFadeInUp 0.9s ease-out 0.65s both;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
     font-weight: 300;
@@ -64,6 +67,8 @@
   }
 
   .hero-buttons {
+    animation: heroFadeInUp 0.9s ease-out 1s both;
+
     .btn {
       border-radius: 50px;
       padding: 1.2rem 2.5rem;
@@ -133,59 +138,29 @@
     z-index: 2;
 
     .scroll-arrow {
-      width: 24px;
-      height: 24px;
-      position: relative;
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: block;
       animation: bounce 2s infinite;
-
-      span {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 2px;
-        height: 8px;
-        background: white;
-        border-radius: 1px;
-        transform-origin: 50% 100%;
-
-        &:first-child {
-          transform: translateX(-50%) rotate(-45deg);
-        }
-
-        &:nth-child(2) {
-          transform: translateX(-50%) rotate(0deg);
-          top: 4px;
-        }
-
-        &:last-child {
-          transform: translateX(-50%) rotate(45deg);
-        }
-      }
+      transition: color 0.3s ease;
     }
 
     &:hover .scroll-arrow {
+      color: white;
       animation-duration: 1s;
     }
   }
 }
 
+@keyframes heroFadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0) translateX(-50%);
-  }
-
-  40% {
-    transform: translateY(-10px) translateX(-50%);
-  }
-
-  60% {
-    transform: translateY(-5px) translateX(-50%);
-  }
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
 }
 
 @media (max-width: 992px) {

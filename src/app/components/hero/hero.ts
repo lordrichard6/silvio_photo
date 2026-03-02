@@ -1,46 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
   imports: [],
   templateUrl: './hero.html',
-  styleUrl: './hero.scss',
-  animations: [
-    trigger('fadeInUp', [
-      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('void => *', [
-        style({ opacity: 0, transform: 'translateY(30px)' }),
-        animate('1000ms ease-out')
-      ])
-    ])
-  ]
+  styleUrl: './hero.scss'
 })
-export class Hero implements OnInit {
-  animationState = 'in';
+export class Hero {
+  @ViewChild('heroBg') heroBg!: ElementRef<HTMLElement>;
 
-  ngOnInit() {
-    // Animation state is set on initialization
+  @HostListener('window:scroll', [])
+  onScroll() {
+    if (!this.heroBg) return;
+    const scrolled = window.pageYOffset;
+    const heroHeight = window.innerHeight;
+    if (scrolled < heroHeight) {
+      this.heroBg.nativeElement.style.transform = `translateY(${scrolled * 0.4}px)`;
+    }
   }
 
   scrollToGallery() {
-    const element = document.getElementById('gallery');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
   }
 
   scrollToContact() {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   }
 
   scrollToNext() {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   }
 }
