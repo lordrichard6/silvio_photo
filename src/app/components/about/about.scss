@@ -142,14 +142,14 @@
   }
 
   .about-image-new {
-    height: 100%;
-    min-height: 500px;
+    flex: 1;
+    min-height: 400px;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     background-image: url('/about_sv.webp');
     background-size: cover;
-    background-position: center top;
+    background-position: center 65%;
     background-repeat: no-repeat;
     border: 8px solid #fff;
     position: relative;
@@ -200,7 +200,7 @@
 @media (max-width: 992px) {
   .about-section {
     .about-image-new {
-      min-height: 400px;
+      min-height: 380px;
       margin-top: 2rem;
     }
   }
@@ -220,7 +220,7 @@
     }
 
     .about-image-new {
-      min-height: 320px;
+      min-height: 300px;
       margin-top: 2rem;
     }
 
