@@ -49,16 +49,22 @@
           </div>
           <div class="col-lg-5">
             <div class="intro-image-block reveal fade-up" style="transition-delay: 0.2s">
-              <div class="image-placeholder">
-                <div class="placeholder-inner">
-                  <i class="fas fa-camera fa-2x"></i>
-                  <span>Imagem ilustrativa</span>
+              @if (service.introImageSrc) {
+                <div class="intro-img-wrap">
+                  <img [src]="service.introImageSrc" [alt]="service.imageBlocks[0].alt" class="intro-img">
                 </div>
-                <div class="prompt-tag">
-                  <i class="fas fa-magic me-1"></i>
-                  <span>{{ service.imageBlocks[0].prompt }}</span>
+              } @else {
+                <div class="image-placeholder">
+                  <div class="placeholder-inner">
+                    <i class="fas fa-camera fa-2x"></i>
+                    <span>Imagem ilustrativa</span>
+                  </div>
+                  <div class="prompt-tag">
+                    <i class="fas fa-magic me-1"></i>
+                    <span>{{ service.imageBlocks[0].prompt }}</span>
+                  </div>
                 </div>
-              </div>
+              }
               <p class="image-caption">{{ service.imageBlocks[0].caption }}</p>
             </div>
           </div>
@@ -95,21 +101,26 @@
         <div class="text-center mb-5 reveal fade-up">
           <span class="section-label">Exemplos de trabalho</span>
           <h2 class="section-heading">Imagens que <span class="gradient-text">falam por si</span></h2>
-          <p class="section-sub">Placeholders com prompts para geração de imagens profissionais</p>
         </div>
         <div class="gallery-grid">
           @for (img of service.imageBlocks; track img.alt; let i = $index) {
             <div class="gallery-block reveal fade-up" [class.wide]="i === 0" [style.transition-delay]="(i * 0.12) + 's'">
-              <div class="gallery-placeholder">
-                <div class="placeholder-content">
-                  <i class="fas fa-camera fa-2x"></i>
-                  <span class="placeholder-label">{{ img.alt }}</span>
+              @if (img.src) {
+                <div class="gallery-img-wrap" [class.wide-wrap]="i === 0">
+                  <img [src]="img.src" [alt]="img.alt" class="gallery-img">
                 </div>
-                <div class="prompt-overlay">
-                  <p class="prompt-title"><i class="fas fa-magic me-2"></i>Prompt IA</p>
-                  <p class="prompt-text">{{ img.prompt }}</p>
+              } @else {
+                <div class="gallery-placeholder">
+                  <div class="placeholder-content">
+                    <i class="fas fa-camera fa-2x"></i>
+                    <span class="placeholder-label">{{ img.alt }}</span>
+                  </div>
+                  <div class="prompt-overlay">
+                    <p class="prompt-title"><i class="fas fa-magic me-2"></i>Prompt IA</p>
+                    <p class="prompt-text">{{ img.prompt }}</p>
+                  </div>
                 </div>
-              </div>
+              }
               <p class="gallery-caption">{{ img.caption }}</p>
             </div>
           }

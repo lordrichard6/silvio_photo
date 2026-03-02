@@ -12,6 +12,7 @@ export interface ProcessStep {
 
 export interface ImageBlock {
     prompt: string;
+    src?: string;
     caption: string;
     alt: string;
 }
@@ -43,6 +44,7 @@ export interface ServicePageData {
     faqs: FAQ[];
     relatedPortfolioSlugs: string[];
     ctaText: string;
+    introImageSrc?: string;
 }
 
 export const SERVICES_DATA: ServicePageData[] = [
@@ -77,16 +79,19 @@ export const SERVICES_DATA: ServicePageData[] = [
         imageBlocks: [
             {
                 prompt: 'Fotografia de retrato feminino suave ao ar livre no Alentejo Portugal, luz dourada de fim de tarde, bokeh cremoso com vegetação verde desfocada, expressão serena e natural, enquadramento próximo, tons quentes e terrosos, câmara Prime 85mm f/1.4',
+                src: 'services/retrato_02.webp',
                 caption: 'Retrato em ambiente natural com a luz dourada do Alentejo',
                 alt: 'Sessão de retrato fotográfico profissional em ambiente natural no Alentejo Portugal'
             },
             {
                 prompt: 'Sessão fotográfica de casal ao pôr do sol em Portugal, paisagem alentejana com planície e sobreiros ao fundo, luz horizontal quente e dramática, silhuetas suaves, amor genuíno e cumplicidade, fotografia de casal romântica profissional',
+                src: 'services/retrato_03.webp',
                 caption: 'Sessão de casal ao pôr do sol — momentos de cumplicidade eternizados',
                 alt: 'Fotografia de casal em sessão fotográfica ao pôr do sol no Alentejo Portugal'
             },
             {
                 prompt: 'Retrato profissional headshot corporativo, expressão confiante e acessível, fundo desfocado cinza neutro elegante, iluminação de anel suave e direcional, fotografia de negócios LinkedIn qualidade editorial',
+                src: 'services/retrato_04.webp',
                 caption: 'Headshot profissional — a sua melhor primeira impressão',
                 alt: 'Headshot fotográfico profissional para LinkedIn e portfolio empresarial'
             }
@@ -105,7 +110,8 @@ export const SERVICES_DATA: ServicePageData[] = [
             { question: 'Posso escolher as fotografias que quero editadas?', answer: 'Sim. Após a sessão, enviamos uma galeria de pré-seleção com todas as imagens base para que escolha as suas favoritas. Desta forma garantimos que as fotografias finais entregues são exatamente as que mais gosta — e não existe risco de ficarem de fora momentos especiais.' }
         ],
         relatedPortfolioSlugs: ['macau', 'ziva'],
-        ctaText: 'Marque a sua sessão de retrato'
+        ctaText: 'Marque a sua sessão de retrato',
+        introImageSrc: 'services/retrato_01.webp'
     },
     {
         slug: 'fotografia-de-eventos',
