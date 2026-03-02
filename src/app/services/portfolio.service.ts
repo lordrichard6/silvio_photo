@@ -181,6 +181,22 @@ export class PortfolioService {
                 'img/Nisa/IMG_0531.webp',
                 'img/Nisa/IMG_0939.webp'
             ]
+        },
+        {
+            id: '10',
+            slug: 'ziva',
+            name: 'Ziva',
+            description: 'Sessão fotográfica da adorável Ziva. Retratos expressivos que capturam a personalidade única, o olhar curioso e os momentos mais genuínos desta encantadora companheira de quatro patas.',
+            category: 'Animais',
+            coverImage: 'img/Ziva/eaefcc8a-dca3-427a-92b8-9bd3191c63cc.webp',
+            images: [
+                'img/Ziva/eaefcc8a-dca3-427a-92b8-9bd3191c63cc.webp',
+                'img/Ziva/121274fa-1c96-495e-ad31-65520eda5948.webp',
+                'img/Ziva/7c8834e0-57ad-4a9d-9f79-e8d033971b56.webp',
+                'img/Ziva/bcf69baa-e1a2-48a0-83f0-c33e0fbbecf9.webp',
+                'img/Ziva/cb265642-fc65-48eb-a524-291f9f8f1dde.webp',
+                'img/Ziva/fba2026a-0aeb-4ab0-88f6-bef223c1f353.webp'
+            ]
         }
     ];
 
