@@ -44,6 +44,73 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+  <!-- Local Business + Person Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.silviovalentt.pt/#business",
+        "name": "Silvio Valente Fotografia",
+        "url": "https://www.silviovalentt.pt",
+        "logo": "https://www.silviovalentt.pt/logo_new.png",
+        "image": "https://www.silviovalentt.pt/hero_new.webp",
+        "description": "Silvio Valente, fotógrafo profissional no Alentejo. Especialista em sessões de retrato, fotografia de eventos e fotografia comercial. Projetos em todo Portugal.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nisa",
+          "addressRegion": "Portalegre",
+          "addressCountry": "PT"
+        },
+        "areaServed": "Portugal",
+        "priceRange": "€€",
+        "sameAs": ["https://www.instagram.com/s.valentt"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Serviços de Fotografia",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sessões de Retrato",
+                "url": "https://www.silviovalentt.pt/servicos/sessoes-de-retrato"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Fotografia de Eventos",
+                "url": "https://www.silviovalentt.pt/servicos/fotografia-de-eventos"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Fotografia Comercial",
+                "url": "https://www.silviovalentt.pt/servicos/fotografia-comercial"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.silviovalentt.pt/#person",
+        "name": "Silvio Valente",
+        "jobTitle": "Fotógrafo Profissional",
+        "url": "https://www.silviovalentt.pt",
+        "image": "https://www.silviovalentt.pt/hero_new.webp",
+        "sameAs": ["https://www.instagram.com/s.valentt"],
+        "worksFor": { "@id": "https://www.silviovalentt.pt/#business" }
+      }
+    ]
+  }
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GLXENV2N7Z"></script>
   <script>

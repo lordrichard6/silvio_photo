@@ -28,7 +28,7 @@
         <div class="gallery-grid">
           @for (image of client.images; track image; let i = $index) {
             <div class="gallery-item" [class.wide]="i === 0">
-              <img [src]="image" [alt]="client.name + ' - foto ' + (i + 1)" loading="lazy">
+              <img [src]="image" [alt]="client.name + ' por Silvio Valente — foto ' + (i + 1)" loading="lazy">
             </div>
           }
         </div>
