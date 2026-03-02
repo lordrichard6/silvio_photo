@@ -1,7 +1,9 @@
 <footer class="footer-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 mb-4">
+
+      <!-- Brand -->
+      <div class="col-lg-3 mb-4">
         <div class="footer-brand">
           <img src="/logo_new.png" alt="Silvio Valente Fotografia" class="mb-3" style="height: 60px; width: auto;">
           <p class="footer-description">
@@ -10,14 +12,29 @@
         </div>
       </div>
 
-      <div class="col-lg-4 mb-4">
-        <ul class="footer-links mt-lg-4">
+      <!-- Navigation -->
+      <div class="col-lg-3 mb-4">
+        <h5 class="footer-title">Navegação</h5>
+        <ul class="footer-links">
+          <li><a [routerLink]="['/']" fragment="home">Início</a></li>
+          <li><a [routerLink]="['/']" fragment="about">Sobre</a></li>
+          <li><a [routerLink]="['/']" fragment="gallery">Portfólio</a></li>
+          <li><a [routerLink]="['/']" fragment="services">Serviços</a></li>
+          <li><a [routerLink]="['/']" fragment="contact">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="col-lg-3 mb-4">
+        <h5 class="footer-title">Legal</h5>
+        <ul class="footer-links">
           <li><a routerLink="/termos">Termos e Condições</a></li>
           <li><a routerLink="/politica-privacidade">Política de Privacidade</a></li>
         </ul>
       </div>
 
-      <div class="col-lg-4 mb-4">
+      <!-- Social & Contact -->
+      <div class="col-lg-3 mb-4">
         <h5 class="footer-title">Siga-me</h5>
         <div class="social-links">
           <a href="https://www.instagram.com/s.valentt" target="_blank" class="social-link">
@@ -32,6 +49,7 @@
           <a href="mailto:s.valentstudio@gmail.com">s.valentstudio&#64;gmail.com</a>
         </p>
       </div>
+
     </div>
 
     <hr class="footer-divider">
