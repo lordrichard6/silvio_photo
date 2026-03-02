@@ -101,42 +101,77 @@
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 2.5rem;
 
     .service-item {
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 16px;
-      padding: 1.5rem;
+      padding: 1.5rem 1rem;
       text-align: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(102, 126, 234, 0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
 
-      i {
-        font-size: 1.8rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 1rem;
-        display: block;
+      // Gradient top accent bar
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .icon-wrapper {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.85rem;
+        transition: all 0.35s ease;
+
+        i {
+          font-size: 1.4rem;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
       }
 
       span {
         font-family: 'Montserrat', sans-serif;
-        font-size: 0.9rem;
-        color: #1e293b;
-        font-weight: 500;
+        font-size: 0.78rem;
+        color: #475569;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
+        display: block;
       }
 
       &:hover {
         background: #fff;
-        transform: translateY(-8px);
-        border-color: rgba(102, 126, 234, 0.2);
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        transform: translateY(-6px);
+        border-color: rgba(102, 126, 234, 0.25);
+        box-shadow: 0 12px 28px rgba(102, 126, 234, 0.12);
+
+        &::before {
+          opacity: 1;
+        }
+
+        .icon-wrapper {
+          background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+          transform: scale(1.08);
+        }
       }
     }
   }
