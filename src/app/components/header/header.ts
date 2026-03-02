@@ -11,7 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 export class Header implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
-  activeSection = 'home';
+  activeSection = '';
 
   private observer!: IntersectionObserver;
 
