@@ -1,20 +1,15 @@
 <section id="about" class="about-section py-5">
-  <div class="background-shapes">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-  </div>
   <div class="container">
-    <div class="text-center mb-5" [@slideInLeft]="animationState">
+    <div class="text-center mb-5 reveal fade-up">
       <h2 class="section-title">Sobre nós</h2>
       <div class="title-divider mx-auto"></div>
       <p class="section-subtitle">
-        Aqui só Serviço de fotografia Profissional
+        Arte. Emoção. Memória.
       </p>
     </div>
 
     <div class="row align-items-center">
-      <div class="col-lg-7" [@slideInLeft]="animationState">
+      <div class="col-lg-7 reveal slide-left">
         <div class="about-card">
           <p class="lead">
             Especializados em capturar momentos únicos com qualidade e criatividade excecionais.
@@ -62,8 +57,12 @@
         </div>
       </div>
 
-      <div class="col-lg-5" [@slideInRight]="animationState">
+      <div class="col-lg-5 reveal slide-right">
         <div class="about-image-new">
+          <div class="image-caption">
+            <span class="caption-name">Silvio Valente</span>
+            <small class="caption-role">Fotógrafo Profissional</small>
+          </div>
         </div>
       </div>
     </div>
