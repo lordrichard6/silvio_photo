@@ -1,0 +1,39 @@
+<section class="portfolio-list-section">
+  <div class="container py-5">
+
+    <div class="page-header text-center mb-5">
+      <a routerLink="/" fragment="gallery" class="back-link">
+        <i class="fas fa-arrow-left me-2"></i>Voltar
+      </a>
+      <h1 class="page-title">Portefólio</h1>
+      <div class="title-divider mx-auto"></div>
+      <p class="page-subtitle">Todos os projetos</p>
+    </div>
+
+    <div class="row g-4">
+      @for (project of projects; track project.slug) {
+        <div class="col-sm-6 col-lg-4">
+          <div class="project-card" [routerLink]="['/portfolio', project.slug]">
+            <div class="card-img-wrapper">
+              <img [src]="project.coverImage" [alt]="project.name" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="overlay-name">{{ project.name }}</span>
+                <span class="view-btn">Ver Projeto <i class="fas fa-arrow-right ms-1"></i></span>
+              </div>
+              <div class="touch-indicator">
+                <i class="fas fa-arrow-right me-1"></i> Ver Projeto
+              </div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-name">{{ project.name }}</h3>
+              @if (project.category) {
+                <span class="category-badge">{{ project.category }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
