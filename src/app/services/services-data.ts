@@ -209,16 +209,19 @@ export const SERVICES_DATA: ServicePageData[] = [
         imageBlocks: [
             {
                 prompt: 'Fotografia gastronómica fine dining de prato requintado português, empratamento artístico, luz natural lateral suave e direcional, fundo escuro elegante, texturas ricas de ingredientes naturais, profundidade de campo seletiva, estilo editorial de revista',
+                src: 'services/comercial_02.webp',
                 caption: 'Fotografia gastronómica — arte no prato, arte na imagem',
                 alt: 'Fotografia gastronómica profissional de prato de restaurante em Portugal'
             },
             {
                 prompt: 'Interior moderno de casa de férias alentejana para Airbnb, espaço amplo e luminoso com luz natural de janela grande, decoração minimalista com elementos portugueses, fotografia imobiliária grande angular, warm tones acolhedores',
+                src: 'services/comercial_03.webp',
                 caption: 'Casa Olival — imagens que fazem os hóspedes escolher',
                 alt: 'Fotografia imobiliária profissional de casa de férias para Airbnb no Alentejo'
             },
             {
                 prompt: 'Fotografia de produto artesanal português sobre fundo linho texturado, luz difusa suave, composição flat lay elegante com elementos naturais complementares, estilo minimalista lifestyle para e-commerce e catálogos premium',
+                src: 'services/comercial_04.webp',
                 caption: 'Fotografia de produto — detalhes que fazem a diferença',
                 alt: 'Fotografia de produto profissional para e-commerce e catálogos comerciais'
             }
@@ -237,7 +240,8 @@ export const SERVICES_DATA: ServicePageData[] = [
             { question: 'Trabalham com agências de marketing e designers?', answer: 'Com todo o prazer. Temos experiência em colaborar com agências criativas, designers de comunicação e gestores de redes sociais. Sabemos adaptar o nosso trabalho a guidelines de marca, formatos específicos de plataformas e necessidades particulares de cada projeto. A comunicação fluida com a equipa criativa do cliente é sempre uma prioridade.' }
         ],
         relatedPortfolioSlugs: ['o-bordado', 'o-cardo', 'casa-olival'],
-        ctaText: 'Solicitar orçamento para o seu negócio'
+        ctaText: 'Solicitar orçamento para o seu negócio',
+        introImageSrc: 'services/comercial_01.webp'
     }
 ];
 
