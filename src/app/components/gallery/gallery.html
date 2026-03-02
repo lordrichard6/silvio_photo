@@ -1,6 +1,6 @@
 <section id="gallery" class="gallery-section py-5">
   <div class="container py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 reveal fade-up">
       <h2 class="section-title">Alguns dos meus projetos</h2>
       <div class="title-divider mx-auto"></div>
       <p class="section-description">
@@ -8,28 +8,32 @@
       </p>
     </div>
 
-    <!-- Featured Projects Grid -->
     <div class="row g-4 justify-content-center mb-5">
-      <div class="col-md-4" *ngFor="let project of featuredProjects">
-        <div class="card h-100 border-0 shadow-lg client-card" [routerLink]="['/portfolio', project.slug]">
-          <div class="card-img-wrapper overflow-hidden">
-            <img [src]="project.coverImage" [alt]="project.name" class="card-img-top object-fit-cover"
-              style="height: 350px;" loading="lazy">
-            <div class="card-overlay">
-              <span class="view-project">Ver Projeto</span>
+      @for (project of featuredProjects; track project.slug; let i = $index) {
+        <div class="col-sm-6 col-md-4 reveal fade-up"
+             [style.transition-delay]="(i * 0.15) + 's'">
+          <div class="card h-100 border-0 client-card" [routerLink]="['/portfolio', project.slug]">
+            <div class="card-img-wrapper">
+              <img [src]="project.coverImage" [alt]="project.name" class="card-img-top" loading="lazy">
+              <div class="card-overlay">
+                <span class="overlay-name">{{ project.name }}</span>
+                <span class="view-project">Ver Projeto <i class="fas fa-arrow-right ms-1"></i></span>
+              </div>
+              <div class="touch-indicator">
+                <i class="fas fa-arrow-right me-1"></i> Ver Projeto
+              </div>
+            </div>
+            <div class="card-body text-center p-4">
+              <h3 class="card-title h5 fw-bold text-white mb-2">{{ project.name }}</h3>
+              <p class="card-text text-white-50 small mb-0">{{ project.description | slice:0:100 }}...</p>
             </div>
           </div>
-          <div class="card-body text-center p-4">
-            <h3 class="card-title h5 fw-bold text-white mb-2">{{ project.name }}</h3>
-            <p class="card-text text-white-50 small mb-0">{{ project.description | slice:0:100 }}...</p>
-          </div>
         </div>
-      </div>
+      }
     </div>
 
-    <!-- CTA To Full Portfolio -->
-    <div class="text-center mt-5">
-      <a routerLink="/portfolio" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow-lg">
+    <div class="text-center mt-5 reveal fade-up" style="transition-delay: 0.3s">
+      <a routerLink="/portfolio" class="btn btn-cta rounded-pill px-5 py-3 fw-bold">
         VER TODOS OS MEUS PROJETOS
       </a>
     </div>
