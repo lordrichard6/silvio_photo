@@ -67,14 +67,12 @@ export class Header implements OnInit, OnDestroy {
 
   scrollTo(elementId: string) {
     this.closeMobileMenu();
-    if (this.router.url === '/') {
-      // Already on home page — smooth scroll
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    const element = document.getElementById(elementId);
+    if (element) {
+      // Section exists on this page — smooth scroll
+      element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // On another page — navigate home then scroll to fragment
+      // Section not found — navigate home and jump to fragment
       this.router.navigate(['/'], { fragment: elementId });
     }
   }
