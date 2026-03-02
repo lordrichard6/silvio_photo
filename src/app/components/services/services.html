@@ -17,7 +17,8 @@
     <div class="row">
       <div *ngFor="let service of services; let i = index" class="col-lg-4 mb-4 d-flex flex-column"
         [@fadeInUp]="animationState">
-        <div class="service-card">
+        <div class="service-card" [class.featured]="i === 1">
+          <span class="featured-badge" *ngIf="i === 1">Mais Popular</span>
           <div class="service-icon">
             <i class="fas {{ service.icon }} fa-2x"></i>
           </div>
