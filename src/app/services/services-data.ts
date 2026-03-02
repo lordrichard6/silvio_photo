@@ -144,16 +144,19 @@ export const SERVICES_DATA: ServicePageData[] = [
         imageBlocks: [
             {
                 prompt: 'Festival de música ao ar livre Portugal verão, multidão animada e envolvida, luzes coloridas LED no palco, energia vibrante e festiva, fotografia de evento noturno com flash profissional, blur criativo do movimento',
+                src: 'services/eventos_02.webp',
                 caption: 'Festival Bua Trip — energia, música e momentos inesquecíveis',
                 alt: 'Cobertura fotográfica profissional de festival de música ao ar livre em Portugal'
             },
             {
                 prompt: 'Competição de motonáutica em rio, barco de alta velocidade em plena corrida, spray de água congelado em alta velocidade, ação dinâmica e adrenalina, fotografia desportiva aquática com teleobjetiva',
+                src: 'services/eventos_03.webp',
                 caption: 'Campeonato de Motonáutica — velocidade, adrenalina e precisão',
                 alt: 'Fotografia desportiva profissional de competição de motonáutica em Portugal'
             },
             {
                 prompt: 'Bastidores de produção cinematográfica independente portuguesa, câmeras e iluminação profissional, equipa técnica concentrada, diretor a orientar atores, fotografia documental de set de filmagens',
+                src: 'services/eventos_04.webp',
                 caption: 'Bastidores de curta-metragem — a magia por trás das câmeras',
                 alt: 'Fotografia de bastidores de produção cinematográfica em Portugal'
             }
@@ -172,7 +175,8 @@ export const SERVICES_DATA: ServicePageData[] = [
             { question: 'Como funciona o processo de reserva e pagamento?', answer: 'Após confirmarmos a disponibilidade e os detalhes do evento, enviamos uma proposta detalhada e um contrato. Para confirmar a reserva solicitamos um sinal de 30% do valor total. O remanescente é liquidado até à véspera do evento. Aceitamos transferência bancária e MB Way.' }
         ],
         relatedPortfolioSlugs: ['bua-trip', 'campeonato-motonautica', 'curta-metragem'],
-        ctaText: 'Solicitar orçamento para o seu evento'
+        ctaText: 'Solicitar orçamento para o seu evento',
+        introImageSrc: 'services/eventos_01.webp'
     },
     {
         slug: 'fotografia-comercial',
