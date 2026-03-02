@@ -1,9 +1,10 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
@@ -13,6 +14,8 @@ export class Header implements OnInit, OnDestroy {
   activeSection = 'home';
 
   private observer!: IntersectionObserver;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkScroll();
@@ -63,10 +66,16 @@ export class Header implements OnInit, OnDestroy {
   }
 
   scrollTo(elementId: string) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      this.closeMobileMenu();
+    this.closeMobileMenu();
+    if (this.router.url === '/') {
+      // Already on home page — smooth scroll
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On another page — navigate home then scroll to fragment
+      this.router.navigate(['/'], { fragment: elementId });
     }
   }
 }

@@ -20,8 +20,8 @@
             href="#about" (click)="scrollTo('about'); $event.preventDefault()">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [class.active]="activeSection === 'gallery'"
-            href="#gallery" (click)="scrollTo('gallery'); $event.preventDefault()">Galeria</a>
+          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active"
+            (click)="closeMobileMenu()">Portefólio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [class.active]="activeSection === 'services'"
