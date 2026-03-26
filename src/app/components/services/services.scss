@@ -1,329 +1,249 @@
 .services-section {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.72)),
-    url('/price.webp');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: #0f0f0f;
+  padding-bottom: 2rem;
+}
+
+// ── Reveal ───────────────────────────────────────────────────
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.fade-up    { transform: translateY(40px); }
+  &.fade-left  { transform: translateX(-40px); }
+  &.fade-right { transform: translateX(40px); }
+
+  &.revealed {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+// ── Header ───────────────────────────────────────────────────
+.services-header {
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+}
+
+.services-label {
+  display: inline-block;
+  color: #661337;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.75rem;
+}
+
+.services-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+}
+
+// ── Service Row ──────────────────────────────────────────────
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 62vh;
+
+  // Reversed row: text left, image right
+  &.reverse {
+    direction: rtl;
+
+    > * { direction: ltr; }
+  }
+}
+
+.service-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0 4rem;
+}
+
+// ── Image Side ───────────────────────────────────────────────
+.service-image-side {
   position: relative;
   overflow: hidden;
+}
 
-  // Scroll reveal
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+.service-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
 
-    &.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .section-title {
-    position: relative;
-    z-index: 1;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #1a202c;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
-
-  .title-divider {
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    margin-bottom: 2rem;
-    border-radius: 2px;
-  }
-
-  .section-description {
-    font-size: 1.125rem;
-    color: #718096;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .service-card {
-    background: white;
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 10px 15px rgba(0, 0, 0, 0.03);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  img {
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    overflow: hidden;
-
-    // Gradient top border accent — always visible
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      opacity: 1;
-    }
-
-    // Featured card variant
-    &.featured {
-      border-color: rgba(102, 126, 234, 0.25);
-      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.12), 0 20px 40px rgba(0, 0, 0, 0.06);
-
-      &::before {
-        height: 5px;
-      }
-    }
-
-    // Featured badge
-    .featured-badge {
-      display: none;
-      position: absolute;
-      top: 1.1rem;
-      right: 1.1rem;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.25rem 0.8rem;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-
-    &.featured .featured-badge {
-      display: inline-block;
-    }
-
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-
-      .service-icon i {
-        transform: scale(1.1) rotate(5deg);
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-      }
-
-      .service-btn {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-      }
-    }
-
-    .service-icon {
-      text-align: center;
-      margin-bottom: 2rem;
-
-      i {
-        color: #667eea;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%);
-        border: 1px solid rgba(102, 126, 234, 0.18);
-        padding: 1.5rem;
-        border-radius: 24px;
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        transition: all 0.4s ease;
-        font-size: 1.75rem;
-      }
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #2d3748;
-      margin-bottom: 1rem;
-      text-align: center;
-      letter-spacing: -0.01em;
-    }
-
-    .service-description {
-      color: #718096;
-      text-align: center;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    .service-price {
-      font-size: 1.25rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .service-features {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 2.5rem;
-      flex-grow: 1;
-
-      li {
-        padding: 0.75rem 0;
-        color: #4a5568;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px dashed #e2e8f0;
-        font-size: 0.95rem;
-
-        &:last-child {
-          border-bottom: none;
-        }
-
-        i {
-          color: #667eea;
-          margin-right: 0.75rem;
-          font-size: 0.9rem;
-          background: rgba(102, 126, 234, 0.1);
-          padding: 4px;
-          border-radius: 50%;
-          width: 20px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-    }
-
-    .service-btn {
-      width: 100%;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      border: none;
-      padding: 1rem;
-      border-radius: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.9rem;
-      color: white;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-      }
-
-      &:hover::after {
-        transform: translateX(100%);
-      }
-    }
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
+.service-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 15, 15, 0.15) 0%,
+    rgba(15, 15, 15, 0) 60%
+  );
+  pointer-events: none;
+}
+
+.service-row:hover .service-image-wrap img {
+  transform: scale(1.04);
+}
+
+// ── Text Side ────────────────────────────────────────────────
+.service-text-side {
+  display: flex;
+  align-items: center;
+  padding: 4rem 5rem;
+  position: relative;
+}
+
+.service-text-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+// ── Background number ────────────────────────────────────────
+.service-number {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: -1.5rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+// ── Service name ─────────────────────────────────────────────
+.service-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+// ── Description ──────────────────────────────────────────────
+.service-desc {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+// ── Price ────────────────────────────────────────────────────
+.service-price {
+  display: inline-block;
+  color: #661337;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.75rem;
+  border-left: 2px solid #661337;
+  padding-left: 0.75rem;
+}
+
+// ── Feature pills ────────────────────────────────────────────
+.service-pills {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  li {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+}
+
+// ── CTA Link ─────────────────────────────────────────────────
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+
+  i { transition: transform 0.25s ease; }
+
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+
+    i { transform: translateX(4px); }
+  }
+}
+
+// ── Responsive ───────────────────────────────────────────────
 @media (max-width: 992px) {
-  .services-section {
-    .section-title {
-      font-size: 2.2rem;
-    }
+  .service-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
 
-    .service-card {
-      margin-bottom: 2rem;
-      padding: 2rem;
-
-      .service-icon i {
-        width: 70px;
-        height: 70px;
-        padding: 1.2rem;
-      }
-    }
+    &.reverse { direction: ltr; }
   }
-}
 
-@media (max-width: 768px) {
-  .services-section {
-    padding: 4rem 0 !important;
+  .service-image-wrap {
+    min-height: 300px;
+  }
 
-    .section-title {
-      font-size: 2rem;
-    }
+  .service-text-side {
+    padding: 3rem 2rem;
+  }
 
-    .service-card {
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-
-      .service-icon {
-        margin-bottom: 1.5rem;
-
-        i {
-          width: 60px;
-          height: 60px;
-          padding: 1rem;
-          font-size: 1.25rem;
-        }
-      }
-
-      h3 {
-        font-size: 1.35rem;
-      }
-
-      .service-description {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-      }
-    }
+  .service-divider {
+    margin: 0 2rem;
   }
 }
 
 @media (max-width: 576px) {
-  .services-section {
-    .section-title {
-      font-size: 1.75rem;
-    }
+  .services-header {
+    padding: 4rem 1.5rem 3rem;
+  }
 
-    .service-card {
-      padding: 1.2rem;
+  .service-text-side {
+    padding: 2.5rem 1.5rem;
+  }
 
-      .service-icon i {
-        width: 50px;
-        height: 50px;
-        padding: 0.8rem;
-        font-size: 1rem;
-      }
+  .service-image-wrap {
+    min-height: 240px;
+  }
 
-      h3 {
-        font-size: 1.2rem;
-      }
-
-      .service-description {
-        font-size: 0.9rem;
-        padding: 0 0.5rem;
-      }
-
-      .service-price {
-        font-size: 1rem;
-      }
-
-      .service-features li {
-        font-size: 0.85rem;
-      }
-
-      .service-btn {
-        font-size: 0.8rem;
-      }
-    }
+  .service-number {
+    font-size: 5rem;
+    margin-bottom: -1rem;
   }
 }

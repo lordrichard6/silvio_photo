@@ -1,360 +1,173 @@
 .about-section {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.72)),
-    url('/about.webp');
+  background: #0f0f0f;
+}
+
+// ── Reveal ───────────────────────────────────────────────────
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.fade-up    { transform: translateY(40px); }
+  &.fade-left  { transform: translateX(-40px); }
+  &.fade-right { transform: translateX(40px); }
+
+  &.revealed {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+// ── Grid ─────────────────────────────────────────────────────
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+
+// ── Image side ───────────────────────────────────────────────
+.about-image-side {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  background-image: url('/about_sv.webp');
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 70vh;
+  background-position: center 65%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15, 15, 15, 0) 55%,
+      rgba(15, 15, 15, 0.35) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.about-image-caption {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.caption-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.caption-role {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+// ── Text side ────────────────────────────────────────────────
+.about-text-side {
   display: flex;
   align-items: center;
-  color: #1e293b;
-  position: relative;
+  padding: 5rem;
+}
 
-  // — Scroll reveal base states —
-  .reveal {
-    opacity: 0;
-    transition: opacity 0.8s ease, transform 0.8s ease;
+.about-text-inner {
+  width: 100%;
+}
 
-    &.fade-up {
-      transform: translateY(30px);
-    }
+.about-label {
+  display: inline-block;
+  color: #661337;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.25rem;
+}
 
-    &.slide-left {
-      transform: translateX(-50px);
-    }
+.about-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 2rem;
+}
 
-    &.slide-right {
-      transform: translateX(50px);
-    }
+.about-lead {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
 
-    &.revealed {
-      opacity: 1;
-      transform: translate(0);
-    }
-  }
+.about-desc {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 440px;
+}
 
-  // Stagger children so image reveals slightly after text
-  .slide-right { transition-delay: 0.15s; }
+// ── Specialty pills ──────────────────────────────────────────
+.about-pills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 
-  .section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .title-divider {
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .section-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    color: #64748b;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 300;
-  }
-
-  .about-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    border-radius: 24px;
-    padding: 3rem;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
-    position: relative;
-    z-index: 2;
-
-    .lead {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-
-    p {
-      color: #475569;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-    }
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2.5rem;
-
-    .service-item {
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 16px;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 1px solid rgba(102, 126, 234, 0.12);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      position: relative;
-      overflow: hidden;
-
-      // Gradient top accent bar
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .icon-wrapper {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 0.85rem;
-        transition: all 0.35s ease;
-
-        i {
-          font-size: 1.4rem;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      }
-
-      span {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.78rem;
-        color: #475569;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        display: block;
-      }
-
-      &:hover {
-        background: #fff;
-        transform: translateY(-6px);
-        border-color: rgba(102, 126, 234, 0.25);
-        box-shadow: 0 12px 28px rgba(102, 126, 234, 0.12);
-
-        &::before {
-          opacity: 1;
-        }
-
-        .icon-wrapper {
-          background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-          transform: scale(1.08);
-        }
-      }
-    }
-  }
-
-  .about-image-new {
-    flex: 1;
-    min-height: 400px;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-    background-image: url('/about_sv.webp');
-    background-size: cover;
-    background-position: center 65%;
-    background-repeat: no-repeat;
-    border: 8px solid #fff;
-    position: relative;
-    z-index: 2;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgba(0, 0, 0, 0.55) 100%
-      );
-      border-radius: 16px;
-    }
-
-    .image-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-
-      .caption-name {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: 0.05em;
-      }
-
-      .caption-role {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.8rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.75);
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-      }
-    }
+  li {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
   }
 }
 
+// ── Responsive ───────────────────────────────────────────────
 @media (max-width: 992px) {
-  .about-section {
-    .about-image-new {
-      min-height: 380px;
-      margin-top: 2rem;
-    }
-
-    .services-grid {
-      gap: 0.75rem;
-
-      .service-item {
-        padding: 1.25rem 0.75rem;
-
-        .icon-wrapper {
-          width: 46px;
-          height: 46px;
-
-          i { font-size: 1.2rem; }
-        }
-
-        span { font-size: 0.75rem; }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .about-section {
-    padding: 3rem 0 !important;
+  .about-grid {
+    grid-template-columns: 1fr;
     min-height: auto;
+  }
 
-    .about-card {
-      padding: 2rem;
+  .about-image-wrap {
+    min-height: 380px;
+  }
 
-      .lead { font-size: 1.1rem; }
-    }
-
-    .about-image-new {
-      min-height: 300px;
-      margin-top: 2rem;
-    }
-
-    .section-title { font-size: 2rem; }
-
-    // Switch to 2-column grid on tablet/mobile — 3 cols is too cramped
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-
-      .service-item {
-        padding: 1.25rem 1rem;
-
-        .icon-wrapper {
-          width: 48px;
-          height: 48px;
-
-          i { font-size: 1.25rem; }
-        }
-
-        span {
-          font-size: 0.8rem;
-          letter-spacing: 0.06em;
-        }
-      }
-    }
+  .about-text-side {
+    padding: 3rem 2rem;
   }
 }
 
 @media (max-width: 576px) {
-  .about-section {
-    .about-card {
-      padding: 1.5rem;
-
-      .lead { font-size: 1rem; }
-    }
-
-    .about-image-new { min-height: 260px; }
-
-    .section-title { font-size: 1.75rem; }
-
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
-
-      .service-item {
-        padding: 1rem 0.75rem;
-
-        .icon-wrapper {
-          width: 42px;
-          height: 42px;
-          border-radius: 11px;
-          margin-bottom: 0.6rem;
-
-          i { font-size: 1.1rem; }
-        }
-
-        span {
-          font-size: 0.72rem;
-          letter-spacing: 0.05em;
-        }
-      }
-    }
+  .about-image-wrap {
+    min-height: 280px;
   }
-}
 
-@media (max-width: 400px) {
-  .about-section {
-    .services-grid {
-      gap: 0.5rem;
-
-      .service-item {
-        padding: 0.85rem 0.5rem;
-
-        .icon-wrapper {
-          width: 38px;
-          height: 38px;
-          border-radius: 10px;
-
-          i { font-size: 1rem; }
-        }
-
-        span { font-size: 0.68rem; }
-      }
-    }
+  .about-text-side {
+    padding: 2.5rem 1.5rem;
   }
 }

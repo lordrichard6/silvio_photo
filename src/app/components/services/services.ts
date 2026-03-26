@@ -9,7 +9,7 @@ interface Service {
   description: string;
   price: string;
   features: string[];
-  icon: string;
+  image: string;
 }
 
 @Component({
@@ -26,7 +26,7 @@ export class Services implements OnInit, OnDestroy {
       id: 1,
       slug: 'sessoes-de-retrato',
       title: 'Sessões de Retrato',
-      description: 'Retratos profissionais para indivíduos, famílias e casais',
+      description: 'Retratos profissionais para indivíduos, famílias e casais — capturados com luz natural e direção artística.',
       price: 'A partir de 100€',
       features: [
         'Sessão de 1-2 horas',
@@ -34,35 +34,35 @@ export class Services implements OnInit, OnDestroy {
         'Local à escolha',
         'Download digital'
       ],
-      icon: 'fa-user'
+      image: '/services/retrato_01.webp'
     },
     {
       id: 2,
       slug: 'fotografia-de-eventos',
       title: 'Fotografia de Eventos',
-      description: 'Eventos corporativos, festas e ocasiões especiais',
+      description: 'Eventos corporativos, festas e ocasiões especiais — cada momento espontâneo documentado com precisão.',
       price: 'A partir de 150€ + deslocação',
       features: [
-        'Cobertura do evento',
+        'Cobertura completa',
         'Momentos espontâneos',
         'Fotos de grupo',
-        'Imagens alta resolução'
+        'Alta resolução'
       ],
-      icon: 'fa-calendar'
+      image: '/services/eventos_01.webp'
     },
     {
       id: 3,
       slug: 'fotografia-comercial',
       title: 'Fotografia Comercial',
-      description: 'Fotografia de produto, marca e empresarial',
+      description: 'Fotografia de produto, marca e empresarial — imagens que comunicam valor e geram resultados.',
       price: 'A partir de 200€',
       features: [
         'Fotografia de produto',
-        'Fotografia de marca',
-        'Direitos de uso comercial',
-        'Edição incluído'
+        'Identidade de marca',
+        'Direitos comerciais',
+        'Edição incluída'
       ],
-      icon: 'fa-briefcase'
+      image: '/services/comercial_01.webp'
     }
   ];
 

@@ -1,47 +1,46 @@
-<section id="services" class="services-section py-5">
-  <div class="container">
-    <div class="text-center mb-5 reveal fade-up">
-      <h2 class="section-title">Serviços</h2>
-      <div class="title-divider mx-auto"></div>
-      <p class="section-description">
-        Serviços profissionais de fotografia personalizados para capturar os seus momentos especiais
-      </p>
-    </div>
+<section id="services" class="services-section">
 
-    <div class="row">
-      @for (service of services; track service.id; let i = $index) {
-        <div class="col-lg-4 mb-4 d-flex flex-column reveal fade-up"
-          [style.transition-delay]="(i * 0.15) + 's'">
-          <div class="service-card" [class.featured]="i === 1">
-            @if (i === 1) {
-              <span class="featured-badge">Mais Popular</span>
-            }
-            <div class="service-icon">
-              <i class="fas {{ service.icon }} fa-2x"></i>
-            </div>
-
-            <div class="service-content">
-              <h3>{{ service.title }}</h3>
-              <p class="service-description">{{ service.description }}</p>
-
-              <div class="service-price">{{ service.price }}</div>
-
-              <ul class="service-features">
-                @for (feature of service.features; track feature) {
-                  <li>
-                    <i class="fas fa-check"></i>
-                    {{ feature }}
-                  </li>
-                }
-              </ul>
-            </div>
-
-            <a [routerLink]="['/servicos', service.slug]" class="btn btn-primary service-btn mt-auto">
-              Saber mais <i class="fas fa-arrow-right ms-2"></i>
-            </a>
-          </div>
-        </div>
-      }
-    </div>
+  <!-- Header -->
+  <div class="services-header reveal fade-up">
+    <span class="services-label">O que ofereço</span>
+    <h2 class="services-title">Serviços</h2>
   </div>
+
+  <!-- Service Rows -->
+  @for (service of services; track service.id; let i = $index) {
+    <div class="service-row" [class.reverse]="i % 2 !== 0">
+
+      <!-- Image side -->
+      <div class="service-image-side reveal" [class.fade-left]="i % 2 === 0" [class.fade-right]="i % 2 !== 0">
+        <div class="service-image-wrap">
+          <img [src]="service.image" [alt]="service.title" loading="lazy">
+          <div class="service-image-overlay"></div>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="service-text-side reveal" [class.fade-right]="i % 2 === 0" [class.fade-left]="i % 2 !== 0">
+        <div class="service-text-inner">
+          <span class="service-number">0{{ service.id }}</span>
+          <h3 class="service-name">{{ service.title }}</h3>
+          <p class="service-desc">{{ service.description }}</p>
+          <div class="service-price">{{ service.price }}</div>
+          <ul class="service-pills">
+            @for (feature of service.features; track feature) {
+              <li>{{ feature }}</li>
+            }
+          </ul>
+          <a [routerLink]="['/servicos', service.slug]" class="service-link">
+            Saber mais <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    @if (i < services.length - 1) {
+      <div class="service-divider"></div>
+    }
+  }
+
 </section>
