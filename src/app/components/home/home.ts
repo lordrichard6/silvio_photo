@@ -3,6 +3,7 @@ import { Hero } from '../hero/hero';
 import { About } from '../about/about';
 import { Gallery } from '../gallery/gallery';
 import { Services } from '../services/services';
+import { Drone } from '../drone/drone';
 import { Founder } from '../founder/founder';
 import { Contact } from '../contact/contact';
 
@@ -14,6 +15,7 @@ import { Contact } from '../contact/contact';
     About,
     Gallery,
     Services,
+    Drone,
     Founder,
     Contact
   ],
@@ -22,6 +24,7 @@ import { Contact } from '../contact/contact';
     <app-about></app-about>
     <app-gallery></app-gallery>
     <app-services></app-services>
+    <app-drone></app-drone>
     <app-founder></app-founder>
     <app-contact></app-contact>
   `

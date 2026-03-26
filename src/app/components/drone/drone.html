@@ -1,0 +1,93 @@
+<section class="drone-section">
+
+  <!-- Background video -->
+  <div class="drone-video-wrap">
+    <video
+      #droneVideo
+      class="drone-video"
+      autoplay
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true">
+      <source src="/drone.webm" type="video/webm">
+      <source src="/drone.mp4" type="video/mp4">
+    </video>
+    <div class="drone-overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="drone-content container">
+
+    <div class="drone-inner reveal fade-left">
+
+      <span class="drone-badge">
+        <i class="fas fa-certificate me-1"></i> Novo Serviço
+      </span>
+
+      <h2 class="drone-title">
+        Fotografia Aérea<br>
+        <span class="drone-title-accent">com Drone</span>
+      </h2>
+
+      <p class="drone-description">
+        Uma perspetiva que nunca antes foi possível. Com drone profissional,
+        capturamos imagens e vídeo aéreo de alta resolução — para eventos, propriedades,
+        paisagens e projetos comerciais em todo Portugal.
+      </p>
+
+      <ul class="drone-features">
+        <li>
+          <span class="feature-icon"><i class="fas fa-map-marked-alt"></i></span>
+          <span>Cobertura em todo o território nacional</span>
+        </li>
+        <li>
+          <span class="feature-icon"><i class="fas fa-film"></i></span>
+          <span>Vídeo 4K e fotografia de alta resolução</span>
+        </li>
+        <li>
+          <span class="feature-icon"><i class="fas fa-shield-alt"></i></span>
+          <span>Piloto certificado ANAC — operação legal e segura</span>
+        </li>
+      </ul>
+
+      <button class="drone-cta" (click)="scrollToContact()">
+        Pedir Orçamento
+        <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Scrolling ticker -->
+  <div class="drone-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Fotografia Aérea</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Vídeo com Drone</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Cobertura de Eventos</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Imobiliário</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Paisagens</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Projetos Comerciais</span>
+      <span class="ticker-dot">·</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="ticker-item">Fotografia Aérea</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Vídeo com Drone</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Cobertura de Eventos</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Imobiliário</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Paisagens</span>
+      <span class="ticker-dot">·</span>
+      <span class="ticker-item">Projetos Comerciais</span>
+      <span class="ticker-dot">·</span>
+    </div>
+  </div>
+
+</section>
