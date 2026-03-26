@@ -51,7 +51,7 @@
             <div class="intro-image-block reveal fade-up" style="transition-delay: 0.2s">
               @if (service.introImageSrc) {
                 <div class="intro-img-wrap">
-                  <img [src]="service.introImageSrc" [alt]="service.imageBlocks[0].alt" class="intro-img">
+                  <img [src]="service.introImageSrc" [alt]="service.imageBlocks[0].alt" class="intro-img" loading="lazy">
                 </div>
               } @else {
                 <div class="image-placeholder">
@@ -107,7 +107,7 @@
             <div class="gallery-block reveal fade-up" [class.wide]="i === 0" [style.transition-delay]="(i * 0.12) + 's'">
               @if (img.src) {
                 <div class="gallery-img-wrap" [class.wide-wrap]="i === 0">
-                  <img [src]="img.src" [alt]="img.alt" class="gallery-img">
+                  <img [src]="img.src" [alt]="img.alt" class="gallery-img" loading="lazy">
                 </div>
               } @else {
                 <div class="gallery-placeholder">

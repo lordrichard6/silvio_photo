@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { PortfolioService, PortfolioClient } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-portfolio-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   templateUrl: './portfolio-list.html',
   styleUrl: './portfolio-list.scss'
 })

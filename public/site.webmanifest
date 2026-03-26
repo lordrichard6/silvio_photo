@@ -1,0 +1,17 @@
+{
+  "name": "Silvio Valente Fotografia",
+  "short_name": "Silvio Photo",
+  "description": "Fotógrafo profissional no Alentejo. Sessões de retrato, fotografia de eventos e fotografia comercial em todo Portugal.",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#661337",
+  "background_color": "#1a1a1a",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "pt-PT"
+}

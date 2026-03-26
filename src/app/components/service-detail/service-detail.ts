@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ElementRef, Renderer2, Inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { getServiceBySlug, ServicePageData } from '../../services/services-data';
@@ -8,7 +8,7 @@ import { PortfolioService, PortfolioClient } from '../../services/portfolio.serv
 @Component({
     selector: 'app-service-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [RouterModule],
     templateUrl: './service-detail.html',
     styleUrls: ['./service-detail.scss']
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 
 interface Service {
@@ -14,7 +14,7 @@ interface Service {
 
 @Component({
   selector: 'app-services',
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   templateUrl: './services.html',
   styleUrl: './services.scss'
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 interface ContactForm {
@@ -15,7 +15,7 @@ import emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
 })
@@ -91,11 +91,9 @@ export class Contact implements OnInit, OnDestroy {
         templateParams
       );
 
-      console.log('SUCCESS!', response.status, response.text);
       this.contactForm = { name: '', email: '', phone: '', service: '', message: '' };
       this.submitted = true;
-    } catch (error) {
-      console.error('FAILED...', error);
+    } catch {
       this.errorMessage = 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos directamente por email.';
     } finally {
       this.isSubmitting = false;
