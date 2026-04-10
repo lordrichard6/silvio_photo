@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
-
+import { Component, OnInit, ElementRef, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import emailjs from '@emailjs/browser';
 
 interface ContactForm {
   name: string;
@@ -9,8 +10,6 @@ interface ContactForm {
   service: string;
   message: string;
 }
-
-import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -24,6 +23,7 @@ export class Contact implements OnInit, OnDestroy {
   submitted = false;
   errorMessage = '';
   private observer!: IntersectionObserver;
+  private platformId = inject(PLATFORM_ID);
 
   contactForm: ContactForm = {
     name: '',
@@ -42,6 +42,7 @@ export class Contact implements OnInit, OnDestroy {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     emailjs.init('0Zwd6N709W5ix3792');
     this.setupIntersectionObserver();
   }
@@ -85,7 +86,7 @@ export class Contact implements OnInit, OnDestroy {
     };
 
     try {
-      const response = await emailjs.send(
+      await emailjs.send(
         'service_fh0v8cc',
         'template_3wra85a',
         templateParams

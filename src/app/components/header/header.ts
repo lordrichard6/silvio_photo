@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
-
+import { Component, HostListener, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -14,10 +14,12 @@ export class Header implements OnInit, OnDestroy {
   activeSection = '';
 
   private observer!: IntersectionObserver;
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private router: Router) {}
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.checkScroll();
     this.setupIntersectionObserver();
   }
@@ -30,6 +32,7 @@ export class Header implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.checkScroll();
   }
 
@@ -69,10 +72,8 @@ export class Header implements OnInit, OnDestroy {
     this.closeMobileMenu();
     const element = document.getElementById(elementId);
     if (element) {
-      // Section exists on this page — smooth scroll
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Section not found — navigate home and jump to fragment
       this.router.navigate(['/'], { fragment: elementId });
     }
   }

@@ -1,5 +1,5 @@
-import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
-
+import { Component, OnInit, ElementRef, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 interface Service {
@@ -20,6 +20,7 @@ interface Service {
 })
 export class Services implements OnInit, OnDestroy {
   private observer!: IntersectionObserver;
+  private platformId = inject(PLATFORM_ID);
 
   services: Service[] = [
     {
@@ -69,6 +70,7 @@ export class Services implements OnInit, OnDestroy {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.setupIntersectionObserver();
   }
 

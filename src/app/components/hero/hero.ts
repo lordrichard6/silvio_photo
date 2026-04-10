@@ -1,4 +1,5 @@
-import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-hero',
@@ -9,9 +10,11 @@ import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 export class Hero {
   @ViewChild('heroBg') heroBg!: ElementRef<HTMLElement>;
 
+  private platformId = inject(PLATFORM_ID);
+
   @HostListener('window:scroll', [])
   onScroll() {
-    if (!this.heroBg) return;
+    if (!isPlatformBrowser(this.platformId) || !this.heroBg) return;
     const scrolled = window.pageYOffset;
     const heroHeight = window.innerHeight;
     if (scrolled < heroHeight) {

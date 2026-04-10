@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-drone',
@@ -9,10 +10,13 @@ import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } fr
 export class Drone implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('droneVideo') droneVideoRef!: ElementRef<HTMLVideoElement>;
   private observer!: IntersectionObserver;
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -31,6 +35,7 @@ export class Drone implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     // Angular strips the `muted` attribute from video elements — set it programmatically
     const video = this.droneVideoRef.nativeElement;
     video.muted = true;

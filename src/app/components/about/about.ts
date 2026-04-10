@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -8,10 +9,13 @@ import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 })
 export class About implements OnInit, OnDestroy {
   private observer!: IntersectionObserver;
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {

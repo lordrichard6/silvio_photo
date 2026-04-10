@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ElementRef, Renderer2, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, Renderer2, Inject, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     openFaqIndex: number | null = null;
     private observer!: IntersectionObserver;
     private jsonLdScript: HTMLScriptElement | null = null;
+    private platformId = inject(PLATFORM_ID);
 
     constructor(
         private route: ActivatedRoute,
@@ -42,7 +44,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
                         .filter((p): p is PortfolioClient => !!p);
                 }
             }
-            setTimeout(() => this.setupIntersectionObserver(), 50);
+            if (isPlatformBrowser(this.platformId)) {
+                setTimeout(() => this.setupIntersectionObserver(), 50);
+            }
         });
     }
 
