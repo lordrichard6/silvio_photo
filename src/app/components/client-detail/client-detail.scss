@@ -259,3 +259,30 @@
     }
   }
 }
+
+/* Cross-link CTA — drives users from portfolio detail to matching service */
+.related-service-cta {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.related-service-text {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #444;
+}
+
+.related-service-link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.4rem;
+  color: #141414;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.15s ease;
+
+  &:hover { opacity: 0.65; }
+}

@@ -3,6 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { PortfolioService, PortfolioClient } from '../../services/portfolio.service';
+import { SERVICES_DATA, ServicePageData } from '../../services/services-data';
 
 @Component({
     selector: 'app-client-detail',
@@ -15,6 +16,7 @@ export class ClientDetailComponent implements OnInit, OnDestroy {
     client: PortfolioClient | undefined;
     prevProject: PortfolioClient | undefined;
     nextProject: PortfolioClient | undefined;
+    relatedService: ServicePageData | undefined;
     private jsonLdScript: HTMLScriptElement | null = null;
 
     constructor(
@@ -35,6 +37,9 @@ export class ClientDetailComponent implements OnInit, OnDestroy {
                 this.client = index >= 0 ? allProjects[index] : undefined;
                 this.prevProject = index > 0 ? allProjects[index - 1] : undefined;
                 this.nextProject = index < allProjects.length - 1 ? allProjects[index + 1] : undefined;
+                this.relatedService = slug
+                    ? SERVICES_DATA.find(s => s.relatedPortfolioSlugs.includes(slug))
+                    : undefined;
                 if (this.client) {
                     this.setMetaTags(this.client);
                     this.injectJsonLd(this.client);

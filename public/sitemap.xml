@@ -1,116 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.silviovalentt.pt/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/"/>
   </url>
-
-  <!-- Portfolio list -->
   <url>
     <loc>https://www.silviovalentt.pt/portfolio</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio"/>
   </url>
-
-  <!-- Portfolio detail pages -->
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/bua-trip</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/bua-trip"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/bua-trip"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/o-bordado</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/o-bordado"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/o-bordado"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/curta-metragem</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/curta-metragem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/curta-metragem"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/classicos</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/classicos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/classicos"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/casa-olival</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/casa-olival"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/casa-olival"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/macau</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/macau"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/macau"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/campeonato-motonautica</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/campeonato-motonautica"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/campeonato-motonautica"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/o-cardo</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/o-cardo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/o-cardo"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/nisa</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/nisa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/nisa"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/portfolio/ziva</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/portfolio/ziva"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/portfolio/ziva"/>
   </url>
-
-  <!-- Service detail pages -->
   <url>
     <loc>https://www.silviovalentt.pt/servicos/sessoes-de-retrato</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/servicos/sessoes-de-retrato"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/servicos/sessoes-de-retrato"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/servicos/fotografia-de-eventos</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/servicos/fotografia-de-eventos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/servicos/fotografia-de-eventos"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/servicos/fotografia-comercial</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/servicos/fotografia-comercial"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/servicos/fotografia-comercial"/>
   </url>
-
-  <!-- Static pages -->
   <url>
     <loc>https://www.silviovalentt.pt/termos</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/termos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/termos"/>
   </url>
   <url>
     <loc>https://www.silviovalentt.pt/politica-privacidade</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/politica-privacidade"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/politica-privacidade"/>
   </url>
-
 </urlset>

@@ -1,0 +1,23 @@
+/* Skip-to-content link — visible only on keyboard focus. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.6rem 1rem;
+  background: #141414;
+  color: #fff;
+  text-decoration: none;
+  z-index: 10000;
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+
+  &:focus {
+    transform: translateY(0);
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+main:focus {
+  outline: none;
+}

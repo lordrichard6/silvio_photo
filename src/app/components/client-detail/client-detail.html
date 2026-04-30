@@ -28,12 +28,29 @@
         <div class="gallery-grid">
           @for (image of client.images; track image; let i = $index) {
             <div class="gallery-item" [class.wide]="i === 0">
-              <img [src]="image" [alt]="client.name + ' por Silvio Valente — foto ' + (i + 1)" loading="lazy">
+              <img [src]="image"
+                [alt]="(client.category ? 'Fotografia de ' + client.category + ': ' : '') + client.name + ' — Silvio Valente Fotografia, Alentejo Portugal — imagem ' + (i + 1) + ' de ' + client.images.length"
+                loading="lazy">
             </div>
           }
         </div>
       </div>
     </div>
+
+    <!-- Related service link (cross-link to drive internal SEO) -->
+    @if (relatedService) {
+      <div class="related-service-cta">
+        <div class="container">
+          <p class="related-service-text">
+            Interessado num projeto semelhante?
+            <a [routerLink]="['/servicos', relatedService.slug]" class="related-service-link">
+              Conheça o serviço de {{ relatedService.title }}
+              <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    }
 
     <!-- Prev / Next Navigation -->
     <div class="project-nav">

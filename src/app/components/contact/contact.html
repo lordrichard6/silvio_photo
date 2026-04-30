@@ -82,6 +82,24 @@
               name="message" placeholder="Como posso ajudar?" required></textarea>
           </div>
 
+          <!-- Honeypot — hidden from humans, bots fill it. Do not remove. -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website"
+              [(ngModel)]="contactForm.website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-group consent-group">
+            <label class="consent-label">
+              <input type="checkbox" id="consent" name="consent"
+                [(ngModel)]="contactForm.consent" required>
+              <span>
+                Li e aceito a <a routerLink="/politica-privacidade">Política de Privacidade</a>
+                e autorizo o tratamento dos meus dados para resposta a este pedido.
+              </span>
+            </label>
+          </div>
+
           @if (errorMessage) {
             <div class="error-message">
               <i class="fas fa-exclamation-circle me-2"></i>{{ errorMessage }}
@@ -89,7 +107,7 @@
           }
 
           <button type="submit" class="submit-btn"
-            [disabled]="!contactFormElement.form.valid || isSubmitting">
+            [disabled]="!contactFormElement.form.valid || !contactForm.consent || isSubmitting">
             @if (!isSubmitting) {
               <span>Enviar Mensagem <i class="fas fa-paper-plane ms-2"></i></span>
             } @else {

@@ -5,6 +5,7 @@ import { TermsComponent } from './components/terms/terms';
 import { PrivacyComponent } from './components/privacy/privacy';
 import { PortfolioListComponent } from './components/portfolio-list/portfolio-list';
 import { ServiceDetailComponent } from './components/service-detail/service-detail';
+import { NotFound } from './components/not-found/not-found';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
     { path: 'portfolio/:slug', component: ClientDetailComponent },
     { path: 'servicos/:slug', component: ServiceDetailComponent },
     { path: 'termos', component: TermsComponent },
-    { path: 'politica-privacidade', component: PrivacyComponent }
+    { path: 'politica-privacidade', component: PrivacyComponent },
+    { path: '**', component: NotFound }
 ];

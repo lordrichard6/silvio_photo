@@ -1,0 +1,15 @@
+@if (show) {
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-banner-inner">
+      <p class="cookie-text">
+        Este site utiliza cookies de análise (Google Analytics) para entender como é usado.
+        Pode aceitar, recusar, ou ler a nossa
+        <a routerLink="/politica-privacidade">Política de Privacidade</a>.
+      </p>
+      <div class="cookie-actions">
+        <button type="button" class="btn-reject" (click)="reject()">Recusar</button>
+        <button type="button" class="btn-accept" (click)="accept()">Aceitar</button>
+      </div>
+    </div>
+  </div>
+}

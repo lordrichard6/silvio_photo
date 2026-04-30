@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import emailjs from '@emailjs/browser';
 
 interface ContactForm {
@@ -9,12 +10,15 @@ interface ContactForm {
   phone: string;
   service: string;
   message: string;
+  consent: boolean;
+  // Honeypot — must stay empty. Bots fill all fields, humans never see this.
+  website: string;
 }
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
 })
@@ -24,13 +28,16 @@ export class Contact implements OnInit, OnDestroy {
   errorMessage = '';
   private observer!: IntersectionObserver;
   private platformId = inject(PLATFORM_ID);
+  private formLoadedAt = 0;
 
   contactForm: ContactForm = {
     name: '',
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    consent: false,
+    website: ''
   };
 
   services = [
@@ -44,6 +51,7 @@ export class Contact implements OnInit, OnDestroy {
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
     emailjs.init('0Zwd6N709W5ix3792');
+    this.formLoadedAt = Date.now();
     this.setupIntersectionObserver();
   }
 
@@ -74,6 +82,24 @@ export class Contact implements OnInit, OnDestroy {
   async onSubmit() {
     if (this.isSubmitting) return;
     this.errorMessage = '';
+
+    // Honeypot — silently drop bot submissions. Pretend success so they don't retry.
+    if (this.contactForm.website) {
+      this.submitted = true;
+      return;
+    }
+
+    // Time-based check: humans take >2s to fill a form. Bots submit instantly.
+    if (Date.now() - this.formLoadedAt < 2000) {
+      this.submitted = true;
+      return;
+    }
+
+    if (!this.contactForm.consent) {
+      this.errorMessage = 'Por favor, aceite a Política de Privacidade para continuar.';
+      return;
+    }
+
     this.isSubmitting = true;
 
     const templateParams = {
@@ -92,7 +118,7 @@ export class Contact implements OnInit, OnDestroy {
         templateParams
       );
 
-      this.contactForm = { name: '', email: '', phone: '', service: '', message: '' };
+      this.contactForm = { name: '', email: '', phone: '', service: '', message: '', consent: false, website: '' };
       this.submitted = true;
     } catch {
       this.errorMessage = 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos directamente por email.';
@@ -107,9 +133,12 @@ export class Contact implements OnInit, OnDestroy {
       email: '',
       phone: '',
       service: '',
-      message: ''
+      message: '',
+      consent: false,
+      website: ''
     };
     this.submitted = false;
     this.errorMessage = '';
+    this.formLoadedAt = Date.now();
   }
 }

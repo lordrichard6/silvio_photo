@@ -16,6 +16,10 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://www.silviovalentt.pt">
 
+  <!-- hreflang — single locale (pt-PT) with x-default fallback -->
+  <link rel="alternate" hreflang="pt-pt" href="https://www.silviovalentt.pt/">
+  <link rel="alternate" hreflang="x-default" href="https://www.silviovalentt.pt/">
+
   <!-- OpenGraph Tags -->
   <meta property="og:title" content="Silvio Valente Fotografia">
   <meta property="og:description"
@@ -37,13 +41,20 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+
+  <!-- Preload LCP hero image to improve Largest Contentful Paint. -->
+  <link rel="preload" as="image" href="/hero_new.webp" fetchpriority="high">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Font Awesome — non-render-blocking via print-then-all swap. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 
   <!-- Local Business + Person Structured Data -->
   <script type="application/ld+json">
@@ -112,14 +123,76 @@
   }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GLXENV2N7Z"></script>
+  <!-- FAQ Structured Data — eligible for Google rich results. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Que tipo de fotografia oferece?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sessões de retrato, fotografia de eventos (casamentos, festas, corporativos) e fotografia comercial (produto, imobiliário, marcas). Também faço fotografia e vídeo aéreo com drone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Onde está localizado e qual a área de cobertura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estou baseado em Nisa, no Alentejo. Cobertura disponível em todo o território nacional português, incluindo Lisboa, Porto, Algarve e Alentejo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona o processo de orçamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Após o primeiro contacto, conversamos sobre as suas necessidades, data, local e tipo de cobertura pretendida. Em 24-48h envio uma proposta personalizada com pacotes e preços."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto tempo demora a entregar as fotografias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sessões de retrato: 7-10 dias úteis. Eventos: 2-3 semanas. Fotografia comercial: 5-10 dias úteis. Galeria de pré-visualização disponível em 48h."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Tem licença para operar drone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Sou piloto de drone certificado pela ANAC (Autoridade Nacional da Aviação Civil), garantindo operação legal e segura em qualquer projeto."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) — loads with Consent Mode v2 default DENIED. The
+       cookie banner upgrades consent to granted only after user accepts. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Set default consent state BEFORE gtag.js loads (RGPD/EU requirement).
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
     gtag('js', new Date());
-    gtag('config', 'G-GLXENV2N7Z');
+    gtag('config', 'G-GLXENV2N7Z', { anonymize_ip: true });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GLXENV2N7Z"></script>
 </head>
 
 <body>
